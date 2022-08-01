@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">890248422241-1t9ghuq5oc1rdtc2raqemuh71pfnu04k.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">890248422241</string>
+    <string name="google_api_key" translatable="false">AIzaSyD-G4An5YslP-pmuxSTL2frvKombC462Q4</string>
+    <string name="google_app_id" translatable="false">1:890248422241:android:4830f074a8000c6cbb9b20</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyD-G4An5YslP-pmuxSTL2frvKombC462Q4</string>
+    <string name="google_storage_bucket" translatable="false">elmerisovellus-d32eb.appspot.com</string>
+    <string name="project_id" translatable="false">elmerisovellus-d32eb</string>
+</resources>
