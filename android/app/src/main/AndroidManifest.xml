@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.elmeri_sovellus">
    <application
-        android:label="elmeri_sovellus"
+        android:label="Elmeri"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

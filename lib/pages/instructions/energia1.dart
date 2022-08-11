@@ -63,6 +63,11 @@ class _Energia1State extends State<Energia1> {
                     child: Text(
                         "Suojaimet, vaatetus, riskinotto: Käytetään tehtävässä tarvittavia henkilökohtaisia suojaimia ja vaatteita. Ei oteta riskiä koneiden käydessä, nostoissa ym."),
                   ),
+                  Container(
+                    height: 2,
+                    color: Colors.black,
+                  ),
+                  const SizedBox(height: 10),
                   //ERGONOMIA
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -80,6 +85,11 @@ class _Energia1State extends State<Energia1> {
                     child: Text(
                         "Työpisteen ja välineiden ergonomia: Työpisteet säädettävissä tai oikein mitoitettu, työvälineet ergonomiset."),
                   ),
+                  Container(
+                    height: 2,
+                    color: Colors.black,
+                  ),
+                  const SizedBox(height: 10),
                   //KONE- JA LAITETURVALLISUUS
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -109,6 +119,11 @@ class _Energia1State extends State<Energia1> {
                     child: Text(
                         "Koneiden hallintalaitteet ja merkintä: Hallintalaitteet merkitty, helposti saavutettavissa (käynnistys-, pysäytys-, ja säätölaitteet, hätäpysäytin)."),
                   ),
+                  Container(
+                    height: 2,
+                    color: Colors.black,
+                  ),
+                  const SizedBox(height: 10),
                   //LIIKKUMISTURVALLISUUS
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -125,6 +140,11 @@ class _Energia1State extends State<Energia1> {
                     child: Text(
                         "Poistumistiet: Poistumistiet merkitty näkyvästi, helppo pääsy, ei esteitä."),
                   ),
+                  Container(
+                    height: 2,
+                    color: Colors.black,
+                  ),
+                  const SizedBox(height: 10),
                   //JÄRJESTYS
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -146,6 +166,11 @@ class _Energia1State extends State<Energia1> {
                     child: Text(
                         "Jäteastiat: Jäteastiat asianmukaiset, sopii lisää jätettä."),
                   ),
+                  Container(
+                    height: 2,
+                    color: Colors.black,
+                  ),
+                  const SizedBox(height: 10),
                   //TYÖYMPÄRISTÖTEKIJÄT
                   Padding(
                     padding: const EdgeInsets.all(8.0),

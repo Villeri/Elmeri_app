@@ -30,6 +30,105 @@ class _NewFormInfoPageState extends State<NewFormInfoPage> {
     "5B101 & 5B101a"
   ];
 
+  int thingsOk1 = 0;
+  int thingsNotOk1 = 0;
+  int thingsOk2 = 0;
+  int thingsNotOk2 = 0;
+  int thingsOk3 = 0;
+  int thingsNotOk3 = 0;
+  int thingsOk4 = 0;
+  int thingsNotOk4 = 0;
+  int thingsOk5 = 0;
+  int thingsNotOk5 = 0;
+  int thingsOk6 = 0;
+  int thingsNotOk6 = 0;
+  int thingsOk7 = 0;
+  int thingsNotOk7 = 0;
+  int thingsOk8 = 0;
+  int thingsNotOk8 = 0;
+  int thingsOk9 = 0;
+  int thingsNotOk9 = 0;
+  int thingsOk10 = 0;
+  int thingsNotOk10 = 0;
+  int thingsOk11 = 0;
+  int thingsNotOk11 = 0;
+  int thingsOk12 = 0;
+  int thingsNotOk12 = 0;
+  int thingsOk13 = 0;
+  int thingsNotOk13 = 0;
+  int thingsOk14 = 0;
+  int thingsNotOk14 = 0;
+  List problemsPartOne = [];
+  List accountablePeoplePartOne = [];
+  List urgenciesPartOne = [];
+  List imgUrlsProblemsPartOne = [];
+  List<Widget> problemCardsPartOne = [];
+  List problemsPartTwo = [];
+  List accountablePeoplePartTwo = [];
+  List urgenciesPartTwo = [];
+  List imgUrlsProblemsPartTwo = [];
+  List<Widget> problemCardsPartTwo = [];
+  List problemsPartThree = [];
+  List accountablePeoplePartThree = [];
+  List urgenciesPartThree = [];
+  List imgUrlsProblemsPartThree = [];
+  List<Widget> problemCardsPartThree = [];
+  List problemsPartFour = [];
+  List accountablePeoplePartFour = [];
+  List urgenciesPartFour = [];
+  List imgUrlsProblemsPartFour = [];
+  List<Widget> problemCardsPartFour = [];
+  List problemsPartFive = [];
+  List accountablePeoplePartFive = [];
+  List urgenciesPartFive = [];
+  List imgUrlsProblemsPartFive = [];
+  List<Widget> problemCardsPartFive = [];
+  List problemsPartSix = [];
+  List accountablePeoplePartSix = [];
+  List urgenciesPartSix = [];
+  List imgUrlsProblemsPartSix = [];
+  List<Widget> problemCardsPartSix = [];
+  List problemsPartSeven = [];
+  List accountablePeoplePartSeven = [];
+  List urgenciesPartSeven = [];
+  List imgUrlsProblemsPartSeven = [];
+  List<Widget> problemCardsPartSeven = [];
+  List problemsPartEight = [];
+  List accountablePeoplePartEight = [];
+  List urgenciesPartEight = [];
+  List imgUrlsProblemsPartEight = [];
+  List<Widget> problemCardsPartEight = [];
+  List problemsPartNine = [];
+  List accountablePeoplePartNine = [];
+  List urgenciesPartNine = [];
+  List imgUrlsProblemsPartNine = [];
+  List<Widget> problemCardsPartNine = [];
+  List problemsPartTen = [];
+  List accountablePeoplePartTen = [];
+  List urgenciesPartTen = [];
+  List imgUrlsProblemsPartTen = [];
+  List<Widget> problemCardsPartTen = [];
+  List problemsPartEleven = [];
+  List accountablePeoplePartEleven = [];
+  List urgenciesPartEleven = [];
+  List imgUrlsProblemsPartEleven = [];
+  List<Widget> problemCardsPartEleven = [];
+  List problemsPartTwelve = [];
+  List accountablePeoplePartTwelve = [];
+  List urgenciesPartTwelve = [];
+  List imgUrlsProblemsPartTwelve = [];
+  List<Widget> problemCardsPartTwelve = [];
+  List problemsPartThirteen = [];
+  List accountablePeoplePartThirteen = [];
+  List urgenciesPartThirteen = [];
+  List imgUrlsProblemsPartThirteen = [];
+  List<Widget> problemCardsPartThirteen = [];
+  List problemsPartFourteen = [];
+  List accountablePeoplePartFourteen = [];
+  List urgenciesPartFourteen = [];
+  List imgUrlsProblemsPartFourteen = [];
+  List<Widget> problemCardsPartFourteen = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -213,6 +312,146 @@ class _NewFormInfoPageState extends State<NewFormInfoPage> {
                                           widget.accountablePeople,
                                       currentRoom: currentRoom,
                                       date: dateController.text,
+                                      thingsOk1: thingsOk1,
+                                      thingsNotOk1: thingsNotOk1,
+                                      thingsOk2: thingsOk2,
+                                      thingsNotOk2: thingsNotOk2,
+                                      thingsOk3: thingsOk3,
+                                      thingsNotOk3: thingsNotOk3,
+                                      thingsOk4: thingsOk4,
+                                      thingsNotOk4: thingsNotOk4,
+                                      thingsOk5: thingsOk5,
+                                      thingsNotOk5: thingsNotOk5,
+                                      thingsOk6: thingsOk6,
+                                      thingsNotOk6: thingsNotOk6,
+                                      thingsOk7: thingsOk7,
+                                      thingsNotOk7: thingsNotOk7,
+                                      thingsOk8: thingsOk8,
+                                      thingsNotOk8: thingsNotOk8,
+                                      thingsOk9: thingsOk9,
+                                      thingsNotOk9: thingsNotOk9,
+                                      thingsOk10: thingsOk10,
+                                      thingsNotOk10: thingsNotOk10,
+                                      thingsOk11: thingsOk11,
+                                      thingsNotOk11: thingsNotOk11,
+                                      thingsOk12: thingsOk12,
+                                      thingsNotOk12: thingsNotOk12,
+                                      thingsOk13: thingsOk13,
+                                      thingsNotOk13: thingsNotOk13,
+                                      thingsOk14: thingsOk14,
+                                      thingsNotOk14: thingsNotOk14,
+                                      problemsPartOne: problemsPartOne,
+                                      accountablePeoplePartOne:
+                                          accountablePeoplePartOne,
+                                      urgenciesPartOne: urgenciesPartOne,
+                                      imgUrlsProblemsPartOne:
+                                          imgUrlsProblemsPartOne,
+                                      problemCardsPartOne: problemCardsPartOne,
+                                      problemsPartTwo: problemsPartTwo,
+                                      accountablePeoplePartTwo:
+                                          accountablePeoplePartTwo,
+                                      urgenciesPartTwo: urgenciesPartTwo,
+                                      imgUrlsProblemsPartTwo:
+                                          imgUrlsProblemsPartTwo,
+                                      problemCardsPartTwo: problemCardsPartTwo,
+                                      problemsPartThree: problemsPartThree,
+                                      accountablePeoplePartThree:
+                                          accountablePeoplePartThree,
+                                      urgenciesPartThree: urgenciesPartThree,
+                                      imgUrlsProblemsPartThree:
+                                          imgUrlsProblemsPartThree,
+                                      problemCardsPartThree:
+                                          problemCardsPartThree,
+                                      problemsPartFour: problemsPartFour,
+                                      accountablePeoplePartFour:
+                                          accountablePeoplePartFour,
+                                      urgenciesPartFour: urgenciesPartFour,
+                                      imgUrlsProblemsPartFour:
+                                          imgUrlsProblemsPartFour,
+                                      problemCardsPartFour:
+                                          problemCardsPartFour,
+                                      problemsPartFive: problemsPartFive,
+                                      accountablePeoplePartFive:
+                                          accountablePeoplePartFive,
+                                      urgenciesPartFive: urgenciesPartFive,
+                                      imgUrlsProblemsPartFive:
+                                          imgUrlsProblemsPartFive,
+                                      problemCardsPartFive:
+                                          problemCardsPartFive,
+                                      problemsPartSix: problemsPartSix,
+                                      accountablePeoplePartSix:
+                                          accountablePeoplePartSix,
+                                      urgenciesPartSix: urgenciesPartSix,
+                                      imgUrlsProblemsPartSix:
+                                          imgUrlsProblemsPartSix,
+                                      problemCardsPartSix: problemCardsPartSix,
+                                      problemsPartSeven: problemsPartSeven,
+                                      accountablePeoplePartSeven:
+                                          accountablePeoplePartSeven,
+                                      urgenciesPartSeven: urgenciesPartSeven,
+                                      imgUrlsProblemsPartSeven:
+                                          imgUrlsProblemsPartSeven,
+                                      problemCardsPartSeven:
+                                          problemCardsPartSeven,
+                                      problemsPartEight: problemsPartEight,
+                                      accountablePeoplePartEight:
+                                          accountablePeoplePartEight,
+                                      urgenciesPartEight: urgenciesPartEight,
+                                      imgUrlsProblemsPartEight:
+                                          imgUrlsProblemsPartEight,
+                                      problemCardsPartEight:
+                                          problemCardsPartEight,
+                                      problemsPartNine: problemsPartNine,
+                                      accountablePeoplePartNine:
+                                          accountablePeoplePartNine,
+                                      urgenciesPartNine: urgenciesPartNine,
+                                      imgUrlsProblemsPartNine:
+                                          imgUrlsProblemsPartNine,
+                                      problemCardsPartNine:
+                                          problemCardsPartNine,
+                                      problemsPartTen: problemsPartTen,
+                                      accountablePeoplePartTen:
+                                          accountablePeoplePartTen,
+                                      urgenciesPartTen: urgenciesPartTen,
+                                      imgUrlsProblemsPartTen:
+                                          imgUrlsProblemsPartTen,
+                                      problemCardsPartTen: problemCardsPartTen,
+                                      problemsPartEleven: problemsPartEleven,
+                                      accountablePeoplePartEleven:
+                                          accountablePeoplePartEleven,
+                                      urgenciesPartEleven: urgenciesPartEleven,
+                                      imgUrlsProblemsPartEleven:
+                                          imgUrlsProblemsPartEleven,
+                                      problemCardsPartEleven:
+                                          problemCardsPartEleven,
+                                      problemsPartTwelve: problemsPartTwelve,
+                                      accountablePeoplePartTwelve:
+                                          accountablePeoplePartTwelve,
+                                      urgenciesPartTwelve: urgenciesPartTwelve,
+                                      imgUrlsProblemsPartTwelve:
+                                          imgUrlsProblemsPartTwelve,
+                                      problemCardsPartTwelve:
+                                          problemCardsPartTwelve,
+                                      problemsPartThirteen:
+                                          problemsPartThirteen,
+                                      accountablePeoplePartThirteen:
+                                          accountablePeoplePartThirteen,
+                                      urgenciesPartThirteen:
+                                          urgenciesPartThirteen,
+                                      imgUrlsProblemsPartThirteen:
+                                          imgUrlsProblemsPartThirteen,
+                                      problemCardsPartThirteen:
+                                          problemCardsPartThirteen,
+                                      problemsPartFourteen:
+                                          problemsPartFourteen,
+                                      accountablePeoplePartFourteen:
+                                          accountablePeoplePartFourteen,
+                                      urgenciesPartFourteen:
+                                          urgenciesPartFourteen,
+                                      imgUrlsProblemsPartFourteen:
+                                          imgUrlsProblemsPartFourteen,
+                                      problemCardsPartFourteen:
+                                          problemCardsPartFourteen,
                                     )));
                       }
                     : () {

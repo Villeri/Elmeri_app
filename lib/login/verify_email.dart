@@ -7,7 +7,9 @@ import 'package:flutter/material.dart';
 import 'utils.dart';
 
 class VerifyEmailPage extends StatefulWidget {
-  const VerifyEmailPage({Key? key}) : super(key: key);
+  const VerifyEmailPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<VerifyEmailPage> createState() => _VerifyEmailPageState();
@@ -40,7 +42,9 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
 
   @override
   Widget build(BuildContext context) => isEmailVerified
-      ? const MainMenu()
+      ? MainMenu(
+          userType: 'user',
+        )
       : Scaffold(
           appBar: AppBar(
             title: const Text("Vahvista sähköposti"),

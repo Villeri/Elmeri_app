@@ -47,6 +47,11 @@ class _Automaatio2State extends State<Automaatio2> {
                         "Työskentely:\n1 havainto opiskelijoista ryhmänä.\nPoikkeavista havainnoista jokaisesta merkintä:",
                         style: Theme.of(context).textTheme.headline6),
                   ),
+                  Container(
+                    height: 2,
+                    color: Colors.black,
+                  ),
+                  const SizedBox(height: 10),
                   const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Text(
@@ -59,6 +64,11 @@ class _Automaatio2State extends State<Automaatio2> {
                         "Ergonomia:\n2 havaintoa opiskelijoiden työskentelyolosuhteista:",
                         style: Theme.of(context).textTheme.headline6),
                   ),
+                  Container(
+                    height: 2,
+                    color: Colors.black,
+                  ),
+                  const SizedBox(height: 10),
                   const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Text(
@@ -69,6 +79,11 @@ class _Automaatio2State extends State<Automaatio2> {
                     child: Text(
                         "Työpisteen ja välineiden ergonomia: Työpisteet säädettävissä tai oikein mitoitettu, työvälineet ergonomiset."),
                   ),
+                  Container(
+                    height: 2,
+                    color: Colors.black,
+                  ),
+                  const SizedBox(height: 10),
                   //KONE- JA LAITETURVALLISUUS
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -98,6 +113,11 @@ class _Automaatio2State extends State<Automaatio2> {
                     child: Text(
                         "Koneiden hallintalaitteet ja merkintä: Hallintalaitteet merkitty, helposti saavutettavissa (käynnistys-, pysäytys-, ja säätölaitteet, hätäpysäytin)."),
                   ),
+                  Container(
+                    height: 2,
+                    color: Colors.black,
+                  ),
+                  const SizedBox(height: 10),
                   //LIIKKUMISTURVALLISUUS
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -114,6 +134,11 @@ class _Automaatio2State extends State<Automaatio2> {
                     child: Text(
                         "Poistumistiet: Poistumistiet merkitty näkyvästi, helppo pääsy, ei esteitä."),
                   ),
+                  Container(
+                    height: 2,
+                    color: Colors.black,
+                  ),
+                  const SizedBox(height: 10),
                   //JÄRJESTYS
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -135,6 +160,11 @@ class _Automaatio2State extends State<Automaatio2> {
                     child: Text(
                         "Jäteastiat: Jäteastiat asianmukaiset, sopii lisää jätettä."),
                   ),
+                  Container(
+                    height: 2,
+                    color: Colors.black,
+                  ),
+                  const SizedBox(height: 10),
                   //TYÖYMPÄRISTÖTEKIJÄT
                   Padding(
                     padding: const EdgeInsets.all(8.0),

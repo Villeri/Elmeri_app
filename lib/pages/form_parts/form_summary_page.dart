@@ -10,6 +10,7 @@ import 'package:syncfusion_flutter_pdf/pdf.dart';
 import 'package:http/http.dart' show get;
 
 import '../../models/form_data.model.dart';
+import '../new_room_page.dart';
 
 class FormSummaryPage extends StatefulWidget {
   String currentRoom;
@@ -17,104 +18,104 @@ class FormSummaryPage extends StatefulWidget {
   String date;
   int thingsOk1;
   int thingsNotOk1;
-  List problemCardsPartOne;
+  int thingsOk2;
+  int thingsNotOk2;
+  int thingsOk3;
+  int thingsNotOk3;
+  int thingsOk4;
+  int thingsNotOk4;
+  int thingsOk5;
+  int thingsNotOk5;
+  int thingsOk6;
+  int thingsNotOk6;
+  int thingsOk7;
+  int thingsNotOk7;
+  int thingsOk8;
+  int thingsNotOk8;
+  int thingsOk9;
+  int thingsNotOk9;
+  int thingsOk10;
+  int thingsNotOk10;
+  int thingsOk11;
+  int thingsNotOk11;
+  int thingsOk12;
+  int thingsNotOk12;
+  int thingsOk13;
+  int thingsNotOk13;
+  int thingsOk14;
+  int thingsNotOk14;
   List problemsPartOne;
   List accountablePeoplePartOne;
   List urgenciesPartOne;
-  List imgUrlsPartOne;
-  int thingsOk2;
-  int thingsNotOk2;
-  List problemCardsPartTwo;
+  List imgUrlsProblemsPartOne;
+  List<Widget> problemCardsPartOne;
   List problemsPartTwo;
   List accountablePeoplePartTwo;
   List urgenciesPartTwo;
-  List imgUrlsPartTwo;
-  int thingsOk3;
-  int thingsNotOk3;
-  List problemCardsPartThree;
+  List imgUrlsProblemsPartTwo;
+  List<Widget> problemCardsPartTwo;
   List problemsPartThree;
   List accountablePeoplePartThree;
   List urgenciesPartThree;
-  List imgUrlsPartThree;
-  int thingsOk4;
-  int thingsNotOk4;
-  List problemCardsPartFour;
+  List imgUrlsProblemsPartThree;
+  List<Widget> problemCardsPartThree;
   List problemsPartFour;
   List accountablePeoplePartFour;
   List urgenciesPartFour;
-  List imgUrlsPartFour;
-  int thingsOk5;
-  int thingsNotOk5;
-  List problemCardsPartFive;
+  List imgUrlsProblemsPartFour;
+  List<Widget> problemCardsPartFour;
   List problemsPartFive;
   List accountablePeoplePartFive;
   List urgenciesPartFive;
-  List imgUrlsPartFive;
-  int thingsOk6;
-  int thingsNotOk6;
-  List problemCardsPartSix;
+  List imgUrlsProblemsPartFive;
+  List<Widget> problemCardsPartFive;
   List problemsPartSix;
   List accountablePeoplePartSix;
   List urgenciesPartSix;
-  List imgUrlsPartSix;
-  int thingsOk7;
-  int thingsNotOk7;
-  List problemCardsPartSeven;
+  List imgUrlsProblemsPartSix;
+  List<Widget> problemCardsPartSix;
   List problemsPartSeven;
   List accountablePeoplePartSeven;
   List urgenciesPartSeven;
-  List imgUrlsPartSeven;
-  int thingsOk8;
-  int thingsNotOk8;
-  List problemCardsPartEight;
+  List imgUrlsProblemsPartSeven;
+  List<Widget> problemCardsPartSeven;
   List problemsPartEight;
   List accountablePeoplePartEight;
   List urgenciesPartEight;
-  List imgUrlsPartEight;
-  int thingsOk9;
-  int thingsNotOk9;
-  List problemCardsPartNine;
+  List imgUrlsProblemsPartEight;
+  List<Widget> problemCardsPartEight;
   List problemsPartNine;
   List accountablePeoplePartNine;
   List urgenciesPartNine;
-  List imgUrlsPartNine;
-  int thingsOk10;
-  int thingsNotOk10;
-  List problemCardsPartTen;
+  List imgUrlsProblemsPartNine;
+  List<Widget> problemCardsPartNine;
   List problemsPartTen;
   List accountablePeoplePartTen;
   List urgenciesPartTen;
-  List imgUrlsPartTen;
-  int thingsOk11;
-  int thingsNotOk11;
-  List problemCardsPartEleven;
+  List imgUrlsProblemsPartTen;
+  List<Widget> problemCardsPartTen;
   List problemsPartEleven;
   List accountablePeoplePartEleven;
   List urgenciesPartEleven;
-  List imgUrlsPartEleven;
-  int thingsOk12;
-  int thingsNotOk12;
-  List problemCardsPartTwelve;
+  List imgUrlsProblemsPartEleven;
+  List<Widget> problemCardsPartEleven;
   List problemsPartTwelve;
   List accountablePeoplePartTwelve;
   List urgenciesPartTwelve;
-  List imgUrlsPartTwelve;
-  int thingsOk13;
-  int thingsNotOk13;
-  List problemCardsPartThirteen;
+  List imgUrlsProblemsPartTwelve;
+  List<Widget> problemCardsPartTwelve;
   List problemsPartThirteen;
   List accountablePeoplePartThirteen;
   List urgenciesPartThirteen;
-  List imgUrlsPartThirteen;
-  int thingsOk14;
-  int thingsNotOk14;
-  List problemCardsPartFourteen;
+  List imgUrlsProblemsPartThirteen;
+  List<Widget> problemCardsPartThirteen;
   List problemsPartFourteen;
   List accountablePeoplePartFourteen;
   List urgenciesPartFourteen;
-  List imgUrlsPartFourteen;
-  int allThingsOk;
-  int allThingsNotOk;
+  List imgUrlsProblemsPartFourteen;
+  List<Widget> problemCardsPartFourteen;
+  num allThingsOk;
+  num allThingsNotOk;
   double index;
 
   FormSummaryPage({
@@ -124,102 +125,102 @@ class FormSummaryPage extends StatefulWidget {
     required this.date,
     required this.thingsOk1,
     required this.thingsNotOk1,
-    required this.problemCardsPartOne,
+    required this.thingsOk2,
+    required this.thingsNotOk2,
+    required this.thingsOk3,
+    required this.thingsNotOk3,
+    required this.thingsOk4,
+    required this.thingsNotOk4,
+    required this.thingsOk5,
+    required this.thingsNotOk5,
+    required this.thingsOk6,
+    required this.thingsNotOk6,
+    required this.thingsOk7,
+    required this.thingsNotOk7,
+    required this.thingsOk8,
+    required this.thingsNotOk8,
+    required this.thingsOk9,
+    required this.thingsNotOk9,
+    required this.thingsOk10,
+    required this.thingsNotOk10,
+    required this.thingsOk11,
+    required this.thingsNotOk11,
+    required this.thingsOk12,
+    required this.thingsNotOk12,
+    required this.thingsOk13,
+    required this.thingsNotOk13,
+    required this.thingsOk14,
+    required this.thingsNotOk14,
     required this.problemsPartOne,
     required this.accountablePeoplePartOne,
     required this.urgenciesPartOne,
-    required this.imgUrlsPartOne,
-    required this.thingsOk2,
-    required this.thingsNotOk2,
-    required this.problemCardsPartTwo,
+    required this.imgUrlsProblemsPartOne,
+    required this.problemCardsPartOne,
     required this.problemsPartTwo,
     required this.accountablePeoplePartTwo,
     required this.urgenciesPartTwo,
-    required this.imgUrlsPartTwo,
-    required this.thingsOk3,
-    required this.thingsNotOk3,
-    required this.problemCardsPartThree,
+    required this.imgUrlsProblemsPartTwo,
+    required this.problemCardsPartTwo,
     required this.problemsPartThree,
     required this.accountablePeoplePartThree,
     required this.urgenciesPartThree,
-    required this.imgUrlsPartThree,
-    required this.thingsOk4,
-    required this.thingsNotOk4,
-    required this.problemCardsPartFour,
+    required this.imgUrlsProblemsPartThree,
+    required this.problemCardsPartThree,
     required this.problemsPartFour,
     required this.accountablePeoplePartFour,
     required this.urgenciesPartFour,
-    required this.imgUrlsPartFour,
-    required this.thingsOk5,
-    required this.thingsNotOk5,
-    required this.problemCardsPartFive,
+    required this.imgUrlsProblemsPartFour,
+    required this.problemCardsPartFour,
     required this.problemsPartFive,
     required this.accountablePeoplePartFive,
     required this.urgenciesPartFive,
-    required this.imgUrlsPartFive,
-    required this.thingsOk6,
-    required this.thingsNotOk6,
-    required this.problemCardsPartSix,
+    required this.imgUrlsProblemsPartFive,
+    required this.problemCardsPartFive,
     required this.problemsPartSix,
     required this.accountablePeoplePartSix,
     required this.urgenciesPartSix,
-    required this.imgUrlsPartSix,
-    required this.thingsOk7,
-    required this.thingsNotOk7,
-    required this.problemCardsPartSeven,
+    required this.imgUrlsProblemsPartSix,
+    required this.problemCardsPartSix,
     required this.problemsPartSeven,
     required this.accountablePeoplePartSeven,
     required this.urgenciesPartSeven,
-    required this.imgUrlsPartSeven,
-    required this.thingsOk8,
-    required this.thingsNotOk8,
-    required this.problemCardsPartEight,
+    required this.imgUrlsProblemsPartSeven,
+    required this.problemCardsPartSeven,
     required this.problemsPartEight,
     required this.accountablePeoplePartEight,
     required this.urgenciesPartEight,
-    required this.imgUrlsPartEight,
-    required this.thingsOk9,
-    required this.thingsNotOk9,
-    required this.problemCardsPartNine,
+    required this.imgUrlsProblemsPartEight,
+    required this.problemCardsPartEight,
     required this.problemsPartNine,
     required this.accountablePeoplePartNine,
     required this.urgenciesPartNine,
-    required this.imgUrlsPartNine,
-    required this.thingsOk10,
-    required this.thingsNotOk10,
-    required this.problemCardsPartTen,
+    required this.imgUrlsProblemsPartNine,
+    required this.problemCardsPartNine,
     required this.problemsPartTen,
     required this.accountablePeoplePartTen,
     required this.urgenciesPartTen,
-    required this.imgUrlsPartTen,
-    required this.thingsOk11,
-    required this.thingsNotOk11,
-    required this.problemCardsPartEleven,
+    required this.imgUrlsProblemsPartTen,
+    required this.problemCardsPartTen,
     required this.problemsPartEleven,
     required this.accountablePeoplePartEleven,
     required this.urgenciesPartEleven,
-    required this.imgUrlsPartEleven,
-    required this.thingsOk12,
-    required this.thingsNotOk12,
-    required this.problemCardsPartTwelve,
+    required this.imgUrlsProblemsPartEleven,
+    required this.problemCardsPartEleven,
     required this.problemsPartTwelve,
     required this.accountablePeoplePartTwelve,
     required this.urgenciesPartTwelve,
-    required this.imgUrlsPartTwelve,
-    required this.thingsOk13,
-    required this.thingsNotOk13,
-    required this.problemCardsPartThirteen,
+    required this.imgUrlsProblemsPartTwelve,
+    required this.problemCardsPartTwelve,
     required this.problemsPartThirteen,
     required this.accountablePeoplePartThirteen,
     required this.urgenciesPartThirteen,
-    required this.imgUrlsPartThirteen,
-    required this.thingsOk14,
-    required this.thingsNotOk14,
-    required this.problemCardsPartFourteen,
+    required this.imgUrlsProblemsPartThirteen,
+    required this.problemCardsPartThirteen,
     required this.problemsPartFourteen,
     required this.accountablePeoplePartFourteen,
     required this.urgenciesPartFourteen,
-    required this.imgUrlsPartFourteen,
+    required this.imgUrlsProblemsPartFourteen,
+    required this.problemCardsPartFourteen,
     required this.allThingsOk,
     required this.allThingsNotOk,
     required this.index,
@@ -411,6 +412,166 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
               checkProblems13(),
               const SizedBox(height: 15),
               checkProblems14(),
+              const SizedBox(height: 20),
+              ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size.fromHeight(50),
+                ),
+                icon: const Icon(Icons.arrow_forward),
+                label: const Text(
+                  "Seuraava tila",
+                  style: TextStyle(fontSize: 24),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => NewRoom(
+                                accountablePeople: widget.accountablePeople,
+                                date: widget.date,
+                                thingsOk1: widget.thingsOk1,
+                                thingsNotOk1: widget.thingsNotOk1,
+                                thingsOk2: widget.thingsOk2,
+                                thingsNotOk2: widget.thingsNotOk2,
+                                thingsOk3: widget.thingsOk3,
+                                thingsNotOk3: widget.thingsNotOk3,
+                                thingsOk4: widget.thingsOk4,
+                                thingsNotOk4: widget.thingsNotOk4,
+                                thingsOk5: widget.thingsOk5,
+                                thingsNotOk5: widget.thingsNotOk5,
+                                thingsOk6: widget.thingsOk6,
+                                thingsNotOk6: widget.thingsNotOk6,
+                                thingsOk7: widget.thingsOk7,
+                                thingsNotOk7: widget.thingsNotOk7,
+                                thingsOk8: widget.thingsOk8,
+                                thingsNotOk8: widget.thingsNotOk8,
+                                thingsOk9: widget.thingsOk9,
+                                thingsNotOk9: widget.thingsNotOk9,
+                                thingsOk10: widget.thingsOk10,
+                                thingsNotOk10: widget.thingsNotOk10,
+                                thingsOk11: widget.thingsOk11,
+                                thingsNotOk11: widget.thingsNotOk11,
+                                thingsOk12: widget.thingsOk12,
+                                thingsNotOk12: widget.thingsNotOk12,
+                                thingsOk13: widget.thingsOk13,
+                                thingsNotOk13: widget.thingsNotOk13,
+                                thingsOk14: widget.thingsOk14,
+                                thingsNotOk14: widget.thingsNotOk14,
+                                problemCardsPartOne: widget.problemCardsPartOne,
+                                problemsPartOne: widget.problemsPartOne,
+                                accountablePeoplePartOne:
+                                    widget.accountablePeoplePartOne,
+                                urgenciesPartOne: widget.urgenciesPartOne,
+                                imgUrlsProblemsPartOne:
+                                    widget.imgUrlsProblemsPartOne,
+                                problemsPartTwo: widget.problemsPartTwo,
+                                accountablePeoplePartTwo:
+                                    widget.accountablePeoplePartTwo,
+                                urgenciesPartTwo: widget.urgenciesPartTwo,
+                                imgUrlsProblemsPartTwo:
+                                    widget.imgUrlsProblemsPartTwo,
+                                problemCardsPartTwo: widget.problemCardsPartTwo,
+                                problemsPartThree: widget.problemsPartThree,
+                                accountablePeoplePartThree:
+                                    widget.accountablePeoplePartThree,
+                                urgenciesPartThree: widget.urgenciesPartThree,
+                                imgUrlsProblemsPartThree:
+                                    widget.imgUrlsProblemsPartThree,
+                                problemCardsPartThree:
+                                    widget.problemCardsPartThree,
+                                problemsPartFour: widget.problemsPartFour,
+                                accountablePeoplePartFour:
+                                    widget.accountablePeoplePartFour,
+                                urgenciesPartFour: widget.urgenciesPartFour,
+                                imgUrlsProblemsPartFour:
+                                    widget.imgUrlsProblemsPartFour,
+                                problemCardsPartFour:
+                                    widget.problemCardsPartFour,
+                                problemsPartFive: widget.problemsPartFive,
+                                accountablePeoplePartFive:
+                                    widget.accountablePeoplePartFive,
+                                urgenciesPartFive: widget.urgenciesPartFive,
+                                imgUrlsProblemsPartFive:
+                                    widget.imgUrlsProblemsPartFive,
+                                problemCardsPartFive:
+                                    widget.problemCardsPartFive,
+                                problemsPartSix: widget.problemsPartSix,
+                                accountablePeoplePartSix:
+                                    widget.accountablePeoplePartSix,
+                                urgenciesPartSix: widget.urgenciesPartSix,
+                                imgUrlsProblemsPartSix:
+                                    widget.imgUrlsProblemsPartSix,
+                                problemCardsPartSix: widget.problemCardsPartSix,
+                                problemsPartSeven: widget.problemsPartSeven,
+                                accountablePeoplePartSeven:
+                                    widget.accountablePeoplePartSeven,
+                                urgenciesPartSeven: widget.urgenciesPartSeven,
+                                imgUrlsProblemsPartSeven:
+                                    widget.imgUrlsProblemsPartSeven,
+                                problemCardsPartSeven:
+                                    widget.problemCardsPartSeven,
+                                problemsPartEight: widget.problemsPartEight,
+                                accountablePeoplePartEight:
+                                    widget.accountablePeoplePartEight,
+                                urgenciesPartEight: widget.urgenciesPartEight,
+                                imgUrlsProblemsPartEight:
+                                    widget.imgUrlsProblemsPartEight,
+                                problemCardsPartEight:
+                                    widget.problemCardsPartEight,
+                                problemsPartNine: widget.problemsPartNine,
+                                accountablePeoplePartNine:
+                                    widget.accountablePeoplePartNine,
+                                urgenciesPartNine: widget.urgenciesPartNine,
+                                imgUrlsProblemsPartNine:
+                                    widget.imgUrlsProblemsPartNine,
+                                problemCardsPartNine:
+                                    widget.problemCardsPartNine,
+                                problemsPartTen: widget.problemsPartTen,
+                                accountablePeoplePartTen:
+                                    widget.accountablePeoplePartTen,
+                                urgenciesPartTen: widget.urgenciesPartTen,
+                                imgUrlsProblemsPartTen:
+                                    widget.imgUrlsProblemsPartTen,
+                                problemCardsPartTen: widget.problemCardsPartTen,
+                                problemsPartEleven: widget.problemsPartEleven,
+                                accountablePeoplePartEleven:
+                                    widget.accountablePeoplePartEleven,
+                                urgenciesPartEleven: widget.urgenciesPartEleven,
+                                imgUrlsProblemsPartEleven:
+                                    widget.imgUrlsProblemsPartEleven,
+                                problemCardsPartEleven:
+                                    widget.problemCardsPartEleven,
+                                problemsPartTwelve: widget.problemsPartTwelve,
+                                accountablePeoplePartTwelve:
+                                    widget.accountablePeoplePartTwelve,
+                                urgenciesPartTwelve: widget.urgenciesPartTwelve,
+                                imgUrlsProblemsPartTwelve:
+                                    widget.imgUrlsProblemsPartTwelve,
+                                problemCardsPartTwelve:
+                                    widget.problemCardsPartTwelve,
+                                problemsPartThirteen:
+                                    widget.problemsPartThirteen,
+                                accountablePeoplePartThirteen:
+                                    widget.accountablePeoplePartThirteen,
+                                urgenciesPartThirteen:
+                                    widget.urgenciesPartThirteen,
+                                imgUrlsProblemsPartThirteen:
+                                    widget.imgUrlsProblemsPartThirteen,
+                                problemCardsPartThirteen:
+                                    widget.problemCardsPartThirteen,
+                                problemsPartFourteen:
+                                    widget.problemsPartFourteen,
+                                accountablePeoplePartFourteen:
+                                    widget.accountablePeoplePartFourteen,
+                                urgenciesPartFourteen:
+                                    widget.urgenciesPartFourteen,
+                                imgUrlsProblemsPartFourteen:
+                                    widget.imgUrlsProblemsPartFourteen,
+                                problemCardsPartFourteen:
+                                    widget.problemCardsPartFourteen,
+                              )));
+                },
+              ),
               Row(
                 children: [
                   ElevatedButton(
@@ -419,7 +580,9 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const MainMenu()));
+                                builder: (context) => MainMenu(
+                                      userType: "user",
+                                    )));
                       },
                       child: const Text("Päävalikkoon")),
                   const Spacer(),
@@ -429,11 +592,6 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
                   ElevatedButton(
                       onPressed: () {
                         saveDataToDatabase();
-                        ScaffoldMessenger.of(context)
-                            .showSnackBar(const SnackBar(
-                          content: Text("Poikkeamassa on oltava kuva mukana!"),
-                          duration: Duration(milliseconds: 1500),
-                        ));
                       },
                       child: const Text("Tallenna tiedot")),
                 ],
@@ -1172,6 +1330,7 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
       bounds: Rect.fromLTWH(0, marginTop, 0, 0),
     );
 
+    //Poikkeamat kohta 1
     final page3 = document.pages.add();
     marginTop = 15;
 
@@ -1190,18 +1349,18 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
         );
         marginTop += 15;
         page3.graphics.drawString(
-          "${i + 1}. Vastuutaho : ${widget.accountablePeoplePartOne[i]}",
+          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartOne[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page3.graphics.drawString(
-          "${i + 1}. Urgency : ${widget.urgenciesPartOne[i]}",
+          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartOne[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 20;
-        var url = widget.imgUrlsPartOne[i];
+        var url = widget.imgUrlsProblemsPartOne[i];
         var response = await get(Uri.parse(url));
         var data = response.bodyBytes;
         PdfBitmap image = PdfBitmap(data);
@@ -1209,6 +1368,514 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
         marginTop += 215;
       }
     }
+
+    //Poikkemat kohta 2
+    final page4 = document.pages.add();
+    marginTop = 15;
+
+    if (widget.problemsPartTwo.isEmpty) {
+      page4.graphics.drawString(
+        "Ei poikkeamia kohdassa 2.",
+        PdfStandardFont(PdfFontFamily.helvetica, 15),
+        bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+      );
+    } else {
+      for (var i = 0; i < widget.problemsPartTwo.length; i++) {
+        page4.graphics.drawString(
+          "${i + 1}. Poikkeama: ${widget.problemsPartTwo[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page4.graphics.drawString(
+          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartTwo[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page4.graphics.drawString(
+          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartTwo[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 20;
+        var url = widget.imgUrlsProblemsPartTwo[i];
+        var response = await get(Uri.parse(url));
+        var data = response.bodyBytes;
+        PdfBitmap image = PdfBitmap(data);
+        page4.graphics.drawImage(image, Rect.fromLTWH(0, marginTop, 200, 200));
+        marginTop += 215;
+      }
+    }
+
+    //Poikkemat kohta 3
+    final page5 = document.pages.add();
+    marginTop = 15;
+
+    if (widget.problemsPartThree.isEmpty) {
+      page5.graphics.drawString(
+        "Ei poikkeamia kohdassa 3.",
+        PdfStandardFont(PdfFontFamily.helvetica, 15),
+        bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+      );
+    } else {
+      for (var i = 0; i < widget.problemsPartThree.length; i++) {
+        page5.graphics.drawString(
+          "${i + 1}. Poikkeama: ${widget.problemsPartThree[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page5.graphics.drawString(
+          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartThree[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page5.graphics.drawString(
+          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartThree[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 20;
+        var url = widget.imgUrlsProblemsPartThree[i];
+        var response = await get(Uri.parse(url));
+        var data = response.bodyBytes;
+        PdfBitmap image = PdfBitmap(data);
+        page5.graphics.drawImage(image, Rect.fromLTWH(0, marginTop, 200, 200));
+        marginTop += 215;
+      }
+    }
+
+    //Poikkemat kohta 4
+    final page6 = document.pages.add();
+    marginTop = 15;
+
+    if (widget.problemsPartFour.isEmpty) {
+      page6.graphics.drawString(
+        "Ei poikkeamia kohdassa 4.",
+        PdfStandardFont(PdfFontFamily.helvetica, 15),
+        bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+      );
+    } else {
+      for (var i = 0; i < widget.problemsPartFour.length; i++) {
+        page6.graphics.drawString(
+          "${i + 1}. Poikkeama: ${widget.problemsPartFour[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page6.graphics.drawString(
+          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartFour[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page6.graphics.drawString(
+          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartFour[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 20;
+        var url = widget.imgUrlsProblemsPartFour[i];
+        var response = await get(Uri.parse(url));
+        var data = response.bodyBytes;
+        PdfBitmap image = PdfBitmap(data);
+        page6.graphics.drawImage(image, Rect.fromLTWH(0, marginTop, 200, 200));
+        marginTop += 215;
+      }
+    }
+
+    //Poikkemat kohta 5
+    final page7 = document.pages.add();
+    marginTop = 15;
+
+    if (widget.problemsPartFive.isEmpty) {
+      page7.graphics.drawString(
+        "Ei poikkeamia kohdassa 5.",
+        PdfStandardFont(PdfFontFamily.helvetica, 15),
+        bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+      );
+    } else {
+      for (var i = 0; i < widget.problemsPartFive.length; i++) {
+        page7.graphics.drawString(
+          "${i + 1}. Poikkeama: ${widget.problemsPartFive[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page7.graphics.drawString(
+          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartFive[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page7.graphics.drawString(
+          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartFive[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 20;
+        var url = widget.imgUrlsProblemsPartFive[i];
+        var response = await get(Uri.parse(url));
+        var data = response.bodyBytes;
+        PdfBitmap image = PdfBitmap(data);
+        page7.graphics.drawImage(image, Rect.fromLTWH(0, marginTop, 200, 200));
+        marginTop += 215;
+      }
+    }
+
+    //Poikkemat kohta 6
+    final page8 = document.pages.add();
+    marginTop = 15;
+
+    if (widget.problemsPartSix.isEmpty) {
+      page8.graphics.drawString(
+        "Ei poikkeamia kohdassa 6.",
+        PdfStandardFont(PdfFontFamily.helvetica, 15),
+        bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+      );
+    } else {
+      for (var i = 0; i < widget.problemsPartSix.length; i++) {
+        page8.graphics.drawString(
+          "${i + 1}. Poikkeama: ${widget.problemsPartSix[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page8.graphics.drawString(
+          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartSix[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page8.graphics.drawString(
+          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartSix[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 20;
+        var url = widget.imgUrlsProblemsPartSix[i];
+        var response = await get(Uri.parse(url));
+        var data = response.bodyBytes;
+        PdfBitmap image = PdfBitmap(data);
+        page8.graphics.drawImage(image, Rect.fromLTWH(0, marginTop, 200, 200));
+        marginTop += 215;
+      }
+    }
+
+    //Poikkemat kohta 7
+    final page9 = document.pages.add();
+    marginTop = 15;
+
+    if (widget.problemsPartSeven.isEmpty) {
+      page9.graphics.drawString(
+        "Ei poikkeamia kohdassa 7.",
+        PdfStandardFont(PdfFontFamily.helvetica, 15),
+        bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+      );
+    } else {
+      for (var i = 0; i < widget.problemsPartSeven.length; i++) {
+        page9.graphics.drawString(
+          "${i + 1}. Poikkeama: ${widget.problemsPartSeven[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page9.graphics.drawString(
+          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartSeven[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page9.graphics.drawString(
+          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartSeven[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 20;
+        var url = widget.imgUrlsProblemsPartSeven[i];
+        var response = await get(Uri.parse(url));
+        var data = response.bodyBytes;
+        PdfBitmap image = PdfBitmap(data);
+        page9.graphics.drawImage(image, Rect.fromLTWH(0, marginTop, 200, 200));
+        marginTop += 215;
+      }
+    }
+
+    //Poikkemat kohta 8
+    final page10 = document.pages.add();
+    marginTop = 15;
+
+    if (widget.problemsPartEight.isEmpty) {
+      page10.graphics.drawString(
+        "Ei poikkeamia kohdassa 8.",
+        PdfStandardFont(PdfFontFamily.helvetica, 15),
+        bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+      );
+    } else {
+      for (var i = 0; i < widget.problemsPartEight.length; i++) {
+        page10.graphics.drawString(
+          "${i + 1}. Poikkeama: ${widget.problemsPartEight[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page10.graphics.drawString(
+          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartEight[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page10.graphics.drawString(
+          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartEight[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 20;
+        var url = widget.imgUrlsProblemsPartEight[i];
+        var response = await get(Uri.parse(url));
+        var data = response.bodyBytes;
+        PdfBitmap image = PdfBitmap(data);
+        page10.graphics.drawImage(image, Rect.fromLTWH(0, marginTop, 200, 200));
+        marginTop += 215;
+      }
+    }
+
+    //Poikkemat kohta 9
+    final page11 = document.pages.add();
+    marginTop = 15;
+
+    if (widget.problemsPartNine.isEmpty) {
+      page11.graphics.drawString(
+        "Ei poikkeamia kohdassa 9.",
+        PdfStandardFont(PdfFontFamily.helvetica, 15),
+        bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+      );
+    } else {
+      for (var i = 0; i < widget.problemsPartNine.length; i++) {
+        page11.graphics.drawString(
+          "${i + 1}. Poikkeama: ${widget.problemsPartNine[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page11.graphics.drawString(
+          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartNine[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page11.graphics.drawString(
+          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartNine[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 20;
+        var url = widget.imgUrlsProblemsPartNine[i];
+        var response = await get(Uri.parse(url));
+        var data = response.bodyBytes;
+        PdfBitmap image = PdfBitmap(data);
+        page11.graphics.drawImage(image, Rect.fromLTWH(0, marginTop, 200, 200));
+        marginTop += 215;
+      }
+    }
+
+    //Poikkemat kohta 10
+    final page12 = document.pages.add();
+    marginTop = 15;
+
+    if (widget.problemsPartTen.isEmpty) {
+      page12.graphics.drawString(
+        "Ei poikkeamia kohdassa 10.",
+        PdfStandardFont(PdfFontFamily.helvetica, 15),
+        bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+      );
+    } else {
+      for (var i = 0; i < widget.problemsPartTen.length; i++) {
+        page12.graphics.drawString(
+          "${i + 1}. Poikkeama: ${widget.problemsPartTen[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page12.graphics.drawString(
+          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartTen[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page12.graphics.drawString(
+          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartTen[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 20;
+        var url = widget.imgUrlsProblemsPartTen[i];
+        var response = await get(Uri.parse(url));
+        var data = response.bodyBytes;
+        PdfBitmap image = PdfBitmap(data);
+        page12.graphics.drawImage(image, Rect.fromLTWH(0, marginTop, 200, 200));
+        marginTop += 215;
+      }
+    }
+
+    //Poikkemat kohta 11
+    final page13 = document.pages.add();
+    marginTop = 15;
+
+    if (widget.problemsPartEleven.isEmpty) {
+      page13.graphics.drawString(
+        "Ei poikkeamia kohdassa 11.",
+        PdfStandardFont(PdfFontFamily.helvetica, 15),
+        bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+      );
+    } else {
+      for (var i = 0; i < widget.problemsPartEleven.length; i++) {
+        page13.graphics.drawString(
+          "${i + 1}. Poikkeama: ${widget.problemsPartEleven[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page13.graphics.drawString(
+          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartEleven[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page13.graphics.drawString(
+          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartEleven[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 20;
+        var url = widget.imgUrlsProblemsPartEleven[i];
+        var response = await get(Uri.parse(url));
+        var data = response.bodyBytes;
+        PdfBitmap image = PdfBitmap(data);
+        page13.graphics.drawImage(image, Rect.fromLTWH(0, marginTop, 200, 200));
+        marginTop += 215;
+      }
+    }
+
+    //Poikkemat kohta 12
+    final page14 = document.pages.add();
+    marginTop = 15;
+
+    if (widget.problemsPartTwelve.isEmpty) {
+      page14.graphics.drawString(
+        "Ei poikkeamia kohdassa 12.",
+        PdfStandardFont(PdfFontFamily.helvetica, 15),
+        bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+      );
+    } else {
+      for (var i = 0; i < widget.problemsPartTwelve.length; i++) {
+        page14.graphics.drawString(
+          "${i + 1}. Poikkeama: ${widget.problemsPartTwelve[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page14.graphics.drawString(
+          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartTwelve[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page14.graphics.drawString(
+          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartTwelve[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 20;
+        var url = widget.imgUrlsProblemsPartTwelve[i];
+        var response = await get(Uri.parse(url));
+        var data = response.bodyBytes;
+        PdfBitmap image = PdfBitmap(data);
+        page14.graphics.drawImage(image, Rect.fromLTWH(0, marginTop, 200, 200));
+        marginTop += 215;
+      }
+    }
+
+    //Poikkemat kohta 13
+    final page15 = document.pages.add();
+    marginTop = 15;
+
+    if (widget.problemsPartThirteen.isEmpty) {
+      page15.graphics.drawString(
+        "Ei poikkeamia kohdassa 13.",
+        PdfStandardFont(PdfFontFamily.helvetica, 15),
+        bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+      );
+    } else {
+      for (var i = 0; i < widget.problemsPartThirteen.length; i++) {
+        page15.graphics.drawString(
+          "${i + 1}. Poikkeama: ${widget.problemsPartThirteen[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page15.graphics.drawString(
+          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartThirteen[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page15.graphics.drawString(
+          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartThirteen[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 20;
+        var url = widget.imgUrlsProblemsPartThirteen[i];
+        var response = await get(Uri.parse(url));
+        var data = response.bodyBytes;
+        PdfBitmap image = PdfBitmap(data);
+        page15.graphics.drawImage(image, Rect.fromLTWH(0, marginTop, 200, 200));
+        marginTop += 215;
+      }
+    }
+
+    //Poikkemat kohta 14
+    final page16 = document.pages.add();
+    marginTop = 15;
+
+    if (widget.problemsPartFourteen.isEmpty) {
+      page16.graphics.drawString(
+        "Ei poikkeamia kohdassa 14.",
+        PdfStandardFont(PdfFontFamily.helvetica, 15),
+        bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+      );
+    } else {
+      for (var i = 0; i < widget.problemsPartFourteen.length; i++) {
+        page16.graphics.drawString(
+          "${i + 1}. Poikkeama: ${widget.problemsPartFourteen[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page16.graphics.drawString(
+          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartFourteen[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 15;
+        page16.graphics.drawString(
+          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartFourteen[i]}",
+          PdfStandardFont(PdfFontFamily.helvetica, 15),
+          bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+        );
+        marginTop += 20;
+        var url = widget.imgUrlsProblemsPartFourteen[i];
+        var response = await get(Uri.parse(url));
+        var data = response.bodyBytes;
+        PdfBitmap image = PdfBitmap(data);
+        page16.graphics.drawImage(image, Rect.fromLTWH(0, marginTop, 200, 200));
+        marginTop += 215;
+      }
+    }
+
     List<int> bytes = document.save();
     document.dispose();
     saveAndLaunchFile(bytes, "ElmeriPdf.pdf");

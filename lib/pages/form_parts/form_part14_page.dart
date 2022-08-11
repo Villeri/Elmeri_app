@@ -1,6 +1,7 @@
 import 'dart:ffi';
 import 'dart:io';
 
+import 'package:camera/camera.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:elmeri_sovellus/pages/form_parts/form_summary_page.dart';
 import 'package:elmeri_sovellus/widgets/form_card_widget.dart';
@@ -16,6 +17,7 @@ import 'package:path/path.dart';
 import '../../api/firebase_file_api.dart';
 import '../../models/problem_data_model.dart';
 import '../instructions/instructions_page.dart';
+import '../take_picture_page.dart';
 
 class FormPartFourteenPage extends StatefulWidget {
   String currentRoom;
@@ -23,95 +25,102 @@ class FormPartFourteenPage extends StatefulWidget {
   String date;
   int thingsOk1;
   int thingsNotOk1;
-  List problemCardsPartOne;
+  int thingsOk2;
+  int thingsNotOk2;
+  int thingsOk3;
+  int thingsNotOk3;
+  int thingsOk4;
+  int thingsNotOk4;
+  int thingsOk5;
+  int thingsNotOk5;
+  int thingsOk6;
+  int thingsNotOk6;
+  int thingsOk7;
+  int thingsNotOk7;
+  int thingsOk8;
+  int thingsNotOk8;
+  int thingsOk9;
+  int thingsNotOk9;
+  int thingsOk10;
+  int thingsNotOk10;
+  int thingsOk11;
+  int thingsNotOk11;
+  int thingsOk12;
+  int thingsNotOk12;
+  int thingsOk13;
+  int thingsNotOk13;
+  int thingsOk14;
+  int thingsNotOk14;
   List problemsPartOne;
   List accountablePeoplePartOne;
   List urgenciesPartOne;
-  List imgUrlsPartOne;
-  int thingsOk2;
-  int thingsNotOk2;
-  List problemCardsPartTwo;
+  List imgUrlsProblemsPartOne;
+  List<Widget> problemCardsPartOne;
   List problemsPartTwo;
   List accountablePeoplePartTwo;
   List urgenciesPartTwo;
-  List imgUrlsPartTwo;
-  int thingsOk3;
-  int thingsNotOk3;
-  List problemCardsPartThree;
+  List imgUrlsProblemsPartTwo;
+  List<Widget> problemCardsPartTwo;
   List problemsPartThree;
   List accountablePeoplePartThree;
   List urgenciesPartThree;
-  List imgUrlsPartThree;
-  int thingsOk4;
-  int thingsNotOk4;
-  List problemCardsPartFour;
+  List imgUrlsProblemsPartThree;
+  List<Widget> problemCardsPartThree;
   List problemsPartFour;
   List accountablePeoplePartFour;
   List urgenciesPartFour;
-  List imgUrlsPartFour;
-  int thingsOk5;
-  int thingsNotOk5;
-  List problemCardsPartFive;
+  List imgUrlsProblemsPartFour;
+  List<Widget> problemCardsPartFour;
   List problemsPartFive;
   List accountablePeoplePartFive;
   List urgenciesPartFive;
-  List imgUrlsPartFive;
-  int thingsOk6;
-  int thingsNotOk6;
-  List problemCardsPartSix;
+  List imgUrlsProblemsPartFive;
+  List<Widget> problemCardsPartFive;
   List problemsPartSix;
   List accountablePeoplePartSix;
   List urgenciesPartSix;
-  List imgUrlsPartSix;
-  int thingsOk7;
-  int thingsNotOk7;
-  List problemCardsPartSeven;
+  List imgUrlsProblemsPartSix;
+  List<Widget> problemCardsPartSix;
   List problemsPartSeven;
   List accountablePeoplePartSeven;
   List urgenciesPartSeven;
-  List imgUrlsPartSeven;
-  int thingsOk8;
-  int thingsNotOk8;
-  List problemCardsPartEight;
+  List imgUrlsProblemsPartSeven;
+  List<Widget> problemCardsPartSeven;
   List problemsPartEight;
   List accountablePeoplePartEight;
   List urgenciesPartEight;
-  List imgUrlsPartEight;
-  int thingsOk9;
-  int thingsNotOk9;
-  List problemCardsPartNine;
+  List imgUrlsProblemsPartEight;
+  List<Widget> problemCardsPartEight;
   List problemsPartNine;
   List accountablePeoplePartNine;
   List urgenciesPartNine;
-  List imgUrlsPartNine;
-  int thingsOk10;
-  int thingsNotOk10;
-  List problemCardsPartTen;
+  List imgUrlsProblemsPartNine;
+  List<Widget> problemCardsPartNine;
   List problemsPartTen;
   List accountablePeoplePartTen;
   List urgenciesPartTen;
-  List imgUrlsPartTen;
-  int thingsOk11;
-  int thingsNotOk11;
-  List problemCardsPartEleven;
+  List imgUrlsProblemsPartTen;
+  List<Widget> problemCardsPartTen;
   List problemsPartEleven;
   List accountablePeoplePartEleven;
   List urgenciesPartEleven;
-  List imgUrlsPartEleven;
-  int thingsOk12;
-  int thingsNotOk12;
-  List problemCardsPartTwelve;
+  List imgUrlsProblemsPartEleven;
+  List<Widget> problemCardsPartEleven;
   List problemsPartTwelve;
   List accountablePeoplePartTwelve;
   List urgenciesPartTwelve;
-  List imgUrlsPartTwelve;
-  int thingsOk13;
-  int thingsNotOk13;
-  List problemCardsPartThirteen;
+  List imgUrlsProblemsPartTwelve;
+  List<Widget> problemCardsPartTwelve;
   List problemsPartThirteen;
   List accountablePeoplePartThirteen;
   List urgenciesPartThirteen;
-  List imgUrlsPartThirteen;
+  List imgUrlsProblemsPartThirteen;
+  List<Widget> problemCardsPartThirteen;
+  List problemsPartFourteen;
+  List accountablePeoplePartFourteen;
+  List urgenciesPartFourteen;
+  List imgUrlsProblemsPartFourteen;
+  List<Widget> problemCardsPartFourteen;
 
   FormPartFourteenPage({
     Key? key,
@@ -120,95 +129,102 @@ class FormPartFourteenPage extends StatefulWidget {
     required this.date,
     required this.thingsOk1,
     required this.thingsNotOk1,
-    required this.problemCardsPartOne,
+    required this.thingsOk2,
+    required this.thingsNotOk2,
+    required this.thingsOk3,
+    required this.thingsNotOk3,
+    required this.thingsOk4,
+    required this.thingsNotOk4,
+    required this.thingsOk5,
+    required this.thingsNotOk5,
+    required this.thingsOk6,
+    required this.thingsNotOk6,
+    required this.thingsOk7,
+    required this.thingsNotOk7,
+    required this.thingsOk8,
+    required this.thingsNotOk8,
+    required this.thingsOk9,
+    required this.thingsNotOk9,
+    required this.thingsOk10,
+    required this.thingsNotOk10,
+    required this.thingsOk11,
+    required this.thingsNotOk11,
+    required this.thingsOk12,
+    required this.thingsNotOk12,
+    required this.thingsOk13,
+    required this.thingsNotOk13,
+    required this.thingsOk14,
+    required this.thingsNotOk14,
     required this.problemsPartOne,
     required this.accountablePeoplePartOne,
     required this.urgenciesPartOne,
-    required this.imgUrlsPartOne,
-    required this.thingsOk2,
-    required this.thingsNotOk2,
-    required this.problemCardsPartTwo,
+    required this.imgUrlsProblemsPartOne,
+    required this.problemCardsPartOne,
     required this.problemsPartTwo,
     required this.accountablePeoplePartTwo,
     required this.urgenciesPartTwo,
-    required this.imgUrlsPartTwo,
-    required this.thingsOk3,
-    required this.thingsNotOk3,
-    required this.problemCardsPartThree,
+    required this.imgUrlsProblemsPartTwo,
+    required this.problemCardsPartTwo,
     required this.problemsPartThree,
     required this.accountablePeoplePartThree,
     required this.urgenciesPartThree,
-    required this.imgUrlsPartThree,
-    required this.thingsOk4,
-    required this.thingsNotOk4,
-    required this.problemCardsPartFour,
+    required this.imgUrlsProblemsPartThree,
+    required this.problemCardsPartThree,
     required this.problemsPartFour,
     required this.accountablePeoplePartFour,
     required this.urgenciesPartFour,
-    required this.imgUrlsPartFour,
-    required this.thingsOk5,
-    required this.thingsNotOk5,
-    required this.problemCardsPartFive,
+    required this.imgUrlsProblemsPartFour,
+    required this.problemCardsPartFour,
     required this.problemsPartFive,
     required this.accountablePeoplePartFive,
     required this.urgenciesPartFive,
-    required this.imgUrlsPartFive,
-    required this.thingsOk6,
-    required this.thingsNotOk6,
-    required this.problemCardsPartSix,
+    required this.imgUrlsProblemsPartFive,
+    required this.problemCardsPartFive,
     required this.problemsPartSix,
     required this.accountablePeoplePartSix,
     required this.urgenciesPartSix,
-    required this.imgUrlsPartSix,
-    required this.thingsOk7,
-    required this.thingsNotOk7,
-    required this.problemCardsPartSeven,
+    required this.imgUrlsProblemsPartSix,
+    required this.problemCardsPartSix,
     required this.problemsPartSeven,
     required this.accountablePeoplePartSeven,
     required this.urgenciesPartSeven,
-    required this.imgUrlsPartSeven,
-    required this.thingsOk8,
-    required this.thingsNotOk8,
-    required this.problemCardsPartEight,
+    required this.imgUrlsProblemsPartSeven,
+    required this.problemCardsPartSeven,
     required this.problemsPartEight,
     required this.accountablePeoplePartEight,
     required this.urgenciesPartEight,
-    required this.imgUrlsPartEight,
-    required this.thingsOk9,
-    required this.thingsNotOk9,
-    required this.problemCardsPartNine,
+    required this.imgUrlsProblemsPartEight,
+    required this.problemCardsPartEight,
     required this.problemsPartNine,
     required this.accountablePeoplePartNine,
     required this.urgenciesPartNine,
-    required this.imgUrlsPartNine,
-    required this.thingsOk10,
-    required this.thingsNotOk10,
-    required this.problemCardsPartTen,
+    required this.imgUrlsProblemsPartNine,
+    required this.problemCardsPartNine,
     required this.problemsPartTen,
     required this.accountablePeoplePartTen,
     required this.urgenciesPartTen,
-    required this.imgUrlsPartTen,
-    required this.thingsOk11,
-    required this.thingsNotOk11,
-    required this.problemCardsPartEleven,
+    required this.imgUrlsProblemsPartTen,
+    required this.problemCardsPartTen,
     required this.problemsPartEleven,
     required this.accountablePeoplePartEleven,
     required this.urgenciesPartEleven,
-    required this.imgUrlsPartEleven,
-    required this.thingsOk12,
-    required this.thingsNotOk12,
-    required this.problemCardsPartTwelve,
+    required this.imgUrlsProblemsPartEleven,
+    required this.problemCardsPartEleven,
     required this.problemsPartTwelve,
     required this.accountablePeoplePartTwelve,
     required this.urgenciesPartTwelve,
-    required this.imgUrlsPartTwelve,
-    required this.thingsOk13,
-    required this.thingsNotOk13,
-    required this.problemCardsPartThirteen,
+    required this.imgUrlsProblemsPartTwelve,
+    required this.problemCardsPartTwelve,
     required this.problemsPartThirteen,
     required this.accountablePeoplePartThirteen,
     required this.urgenciesPartThirteen,
-    required this.imgUrlsPartThirteen,
+    required this.imgUrlsProblemsPartThirteen,
+    required this.problemCardsPartThirteen,
+    required this.problemsPartFourteen,
+    required this.accountablePeoplePartFourteen,
+    required this.urgenciesPartFourteen,
+    required this.imgUrlsProblemsPartFourteen,
+    required this.problemCardsPartFourteen,
   }) : super(key: key);
 
   @override
@@ -216,8 +232,6 @@ class FormPartFourteenPage extends StatefulWidget {
 }
 
 class _FormPartFourteenPageState extends State<FormPartFourteenPage> {
-  int thingsOk14 = 0;
-  int thingsNotOk14 = 0;
   TextEditingController problemFourteenController = TextEditingController();
   List problemsAccountablePeople = [];
   String currentUrgency = "Matala";
@@ -226,11 +240,6 @@ class _FormPartFourteenPageState extends State<FormPartFourteenPage> {
   int problem14Id = 1;
   final ProblemData _problemData = ProblemData();
   UploadTask? task;
-  List problemsPartFourteen = [];
-  List accountablePeoplePartFourteen = [];
-  List urgenciesPartFourteen = [];
-  List imgUrlsProblemsPartFourteen = [];
-  List<Widget> problemCardsPartFourteen = [];
   double index = 0.0;
 
   @override
@@ -248,6 +257,19 @@ class _FormPartFourteenPageState extends State<FormPartFourteenPage> {
         title: const Text("Työympäristötekijät"),
         actions: [
           IconButton(
+            icon: const Icon(Icons.camera_alt_outlined),
+            onPressed: () async {
+              final cameras = await availableCameras(); //kamera
+              final firstCamera = cameras.first;
+              // ignore: use_build_context_synchronously
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          TakePicturePage(camera: firstCamera)));
+            },
+          ),
+          IconButton(
             icon: const Icon(Icons.question_mark),
             onPressed: () {
               Navigator.push(
@@ -264,8 +286,8 @@ class _FormPartFourteenPageState extends State<FormPartFourteenPage> {
             children: [
               FormCardWidget(
                 headerText: "14. Ilman puhtaus ja käsiteltävät aineet",
-                thingsOk: thingsOk14.toString(),
-                thingsNotOk: thingsNotOk14.toString(),
+                thingsOk: widget.thingsOk14.toString(),
+                thingsNotOk: widget.thingsNotOk14.toString(),
                 plusThingsOk: plusThingsOkPartFourteen,
                 minusThingsOk: minusThingsOkPartFourteen,
                 plusThingsNotOk: plusThingsNotOkPartFourteen,
@@ -353,17 +375,18 @@ class _FormPartFourteenPageState extends State<FormPartFourteenPage> {
                           ? () {
                               saveDataToDatabase();
                               setState(() {
-                                problemsPartFourteen
-                                    .add(problemFourteenController.text);
-                                accountablePeoplePartFourteen
-                                    .add(accountablePeoplePartFourteen);
-                                urgenciesPartFourteen.add(currentUrgency);
-                                problemCardsPartFourteen.add(
+                                widget.problemsPartFourteen.add(
+                                    "${widget.currentRoom} Poikkeama: ${problemFourteenController.text}");
+                                widget.accountablePeoplePartFourteen
+                                    .add(problemsAccountablePeople);
+                                widget.urgenciesPartFourteen
+                                    .add(currentUrgency);
+                                widget.problemCardsPartFourteen.add(
                                   Card(
                                     child: Column(
                                       children: [
                                         Text(
-                                            "Poikkeama: ${problemFourteenController.text}",
+                                            "${widget.currentRoom} Poikkeama: ${problemFourteenController.text}",
                                             style:
                                                 const TextStyle(fontSize: 15)),
                                         const Text("Havainnoitsijat:",
@@ -404,7 +427,7 @@ class _FormPartFourteenPageState extends State<FormPartFourteenPage> {
               ),
               task != null ? buildUploadStatus(task!) : Container(),
               NextButton(onPressed: () {
-                int allOk = widget.thingsOk1 +
+                num allOk = widget.thingsOk1 +
                     widget.thingsOk2 +
                     widget.thingsOk3 +
                     widget.thingsOk4 +
@@ -417,8 +440,8 @@ class _FormPartFourteenPageState extends State<FormPartFourteenPage> {
                     widget.thingsOk11 +
                     widget.thingsOk12 +
                     widget.thingsOk13 +
-                    thingsOk14;
-                int allNotOk = widget.thingsNotOk1 +
+                    widget.thingsOk14;
+                num allNotOk = widget.thingsNotOk1 +
                     widget.thingsNotOk2 +
                     widget.thingsNotOk3 +
                     widget.thingsNotOk4 +
@@ -431,7 +454,7 @@ class _FormPartFourteenPageState extends State<FormPartFourteenPage> {
                     widget.thingsNotOk11 +
                     widget.thingsNotOk12 +
                     widget.thingsNotOk13 +
-                    thingsNotOk14;
+                    widget.thingsNotOk14;
                 index = allOk / (allOk + allNotOk) * 100;
                 Navigator.push(
                     context,
@@ -442,124 +465,139 @@ class _FormPartFourteenPageState extends State<FormPartFourteenPage> {
                               date: widget.date,
                               thingsOk1: widget.thingsOk1,
                               thingsNotOk1: widget.thingsNotOk1,
+                              thingsOk2: widget.thingsOk2,
+                              thingsNotOk2: widget.thingsNotOk2,
+                              thingsOk3: widget.thingsOk3,
+                              thingsNotOk3: widget.thingsNotOk3,
+                              thingsOk4: widget.thingsOk4,
+                              thingsNotOk4: widget.thingsNotOk4,
+                              thingsOk5: widget.thingsOk5,
+                              thingsNotOk5: widget.thingsNotOk5,
+                              thingsOk6: widget.thingsOk6,
+                              thingsNotOk6: widget.thingsNotOk6,
+                              thingsOk7: widget.thingsOk7,
+                              thingsNotOk7: widget.thingsNotOk7,
+                              thingsOk8: widget.thingsOk8,
+                              thingsNotOk8: widget.thingsNotOk8,
+                              thingsOk9: widget.thingsOk9,
+                              thingsNotOk9: widget.thingsNotOk9,
+                              thingsOk10: widget.thingsOk10,
+                              thingsNotOk10: widget.thingsNotOk10,
+                              thingsOk11: widget.thingsOk11,
+                              thingsNotOk11: widget.thingsNotOk11,
+                              thingsOk12: widget.thingsOk12,
+                              thingsNotOk12: widget.thingsNotOk12,
+                              thingsOk13: widget.thingsOk13,
+                              thingsNotOk13: widget.thingsNotOk13,
+                              thingsOk14: widget.thingsOk14,
+                              thingsNotOk14: widget.thingsNotOk14,
                               problemCardsPartOne: widget.problemCardsPartOne,
                               problemsPartOne: widget.problemsPartOne,
                               accountablePeoplePartOne:
-                                  widget.accountablePeople,
+                                  widget.accountablePeoplePartOne,
                               urgenciesPartOne: widget.urgenciesPartOne,
-                              imgUrlsPartOne: widget.imgUrlsPartOne,
+                              imgUrlsProblemsPartOne:
+                                  widget.imgUrlsProblemsPartOne,
+                              problemsPartTwo: widget.problemsPartTwo,
                               accountablePeoplePartTwo:
                                   widget.accountablePeoplePartTwo,
-                              imgUrlsPartTwo: widget.imgUrlsPartTwo,
-                              problemCardsPartTwo: widget.problemCardsPartTwo,
-                              problemsPartTwo: widget.problemsPartTwo,
-                              thingsNotOk2: widget.thingsNotOk2,
-                              thingsOk2: widget.thingsOk1,
                               urgenciesPartTwo: widget.urgenciesPartTwo,
+                              imgUrlsProblemsPartTwo:
+                                  widget.imgUrlsProblemsPartTwo,
+                              problemCardsPartTwo: widget.problemCardsPartTwo,
+                              problemsPartThree: widget.problemsPartThree,
                               accountablePeoplePartThree:
                                   widget.accountablePeoplePartThree,
-                              imgUrlsPartThree: widget.imgUrlsPartThree,
+                              urgenciesPartThree: widget.urgenciesPartThree,
+                              imgUrlsProblemsPartThree:
+                                  widget.imgUrlsProblemsPartThree,
                               problemCardsPartThree:
                                   widget.problemCardsPartThree,
-                              problemsPartThree: widget.problemsPartThree,
-                              thingsNotOk3: widget.thingsNotOk3,
-                              thingsOk3: widget.thingsOk3,
-                              urgenciesPartThree: widget.urgenciesPartThree,
+                              problemsPartFour: widget.problemsPartFour,
                               accountablePeoplePartFour:
                                   widget.accountablePeoplePartFour,
-                              imgUrlsPartFour: widget.imgUrlsPartFour,
-                              problemCardsPartFour: widget.problemCardsPartFour,
-                              problemsPartFour: widget.problemsPartFour,
-                              thingsNotOk4: widget.thingsNotOk4,
-                              thingsOk4: widget.thingsOk4,
                               urgenciesPartFour: widget.urgenciesPartFour,
+                              imgUrlsProblemsPartFour:
+                                  widget.imgUrlsProblemsPartFour,
+                              problemCardsPartFour: widget.problemCardsPartFour,
+                              problemsPartFive: widget.problemsPartFive,
                               accountablePeoplePartFive:
                                   widget.accountablePeoplePartFive,
-                              imgUrlsPartFive: widget.imgUrlsPartFive,
-                              problemCardsPartFive: widget.problemCardsPartFive,
-                              problemsPartFive: widget.problemsPartFive,
-                              thingsNotOk5: widget.thingsNotOk5,
-                              thingsOk5: widget.thingsOk5,
                               urgenciesPartFive: widget.urgenciesPartFive,
+                              imgUrlsProblemsPartFive:
+                                  widget.imgUrlsProblemsPartFive,
+                              problemCardsPartFive: widget.problemCardsPartFive,
+                              problemsPartSix: widget.problemsPartSix,
                               accountablePeoplePartSix:
                                   widget.accountablePeoplePartSix,
-                              imgUrlsPartSix: widget.imgUrlsPartSix,
-                              problemCardsPartSix: widget.problemCardsPartSix,
-                              problemsPartSix: widget.problemsPartSix,
-                              thingsNotOk6: widget.thingsNotOk6,
-                              thingsOk6: widget.thingsOk6,
                               urgenciesPartSix: widget.urgenciesPartSix,
+                              imgUrlsProblemsPartSix:
+                                  widget.imgUrlsProblemsPartSix,
+                              problemCardsPartSix: widget.problemCardsPartSix,
+                              problemsPartSeven: widget.problemsPartSeven,
                               accountablePeoplePartSeven:
                                   widget.accountablePeoplePartSeven,
-                              imgUrlsPartSeven: widget.imgUrlsPartSeven,
+                              urgenciesPartSeven: widget.urgenciesPartSeven,
+                              imgUrlsProblemsPartSeven:
+                                  widget.imgUrlsProblemsPartSeven,
                               problemCardsPartSeven:
                                   widget.problemCardsPartSeven,
-                              problemsPartSeven: widget.problemsPartSeven,
-                              thingsNotOk7: widget.thingsNotOk7,
-                              thingsOk7: widget.thingsOk7,
-                              urgenciesPartSeven: widget.urgenciesPartSeven,
+                              problemsPartEight: widget.problemsPartEight,
                               accountablePeoplePartEight:
                                   widget.accountablePeoplePartEight,
-                              imgUrlsPartEight: widget.imgUrlsPartEight,
+                              urgenciesPartEight: widget.urgenciesPartEight,
+                              imgUrlsProblemsPartEight:
+                                  widget.imgUrlsProblemsPartEight,
                               problemCardsPartEight:
                                   widget.problemCardsPartEight,
-                              problemsPartEight: widget.problemsPartEight,
-                              thingsNotOk8: widget.thingsNotOk8,
-                              thingsOk8: widget.thingsOk8,
-                              urgenciesPartEight: widget.urgenciesPartEight,
+                              problemsPartNine: widget.problemsPartNine,
                               accountablePeoplePartNine:
                                   widget.accountablePeoplePartNine,
-                              imgUrlsPartNine: widget.imgUrlsPartNine,
-                              problemCardsPartNine: widget.problemCardsPartNine,
-                              problemsPartNine: widget.problemsPartNine,
-                              thingsNotOk9: widget.thingsNotOk9,
-                              thingsOk9: widget.thingsOk9,
                               urgenciesPartNine: widget.urgenciesPartNine,
+                              imgUrlsProblemsPartNine:
+                                  widget.imgUrlsProblemsPartNine,
+                              problemCardsPartNine: widget.problemCardsPartNine,
+                              problemsPartTen: widget.problemsPartTen,
                               accountablePeoplePartTen:
                                   widget.accountablePeoplePartTen,
-                              imgUrlsPartTen: widget.imgUrlsPartTen,
-                              problemCardsPartTen: widget.problemCardsPartTen,
-                              problemsPartTen: widget.problemsPartTen,
-                              thingsNotOk10: widget.thingsNotOk10,
-                              thingsOk10: widget.thingsOk10,
                               urgenciesPartTen: widget.urgenciesPartTen,
+                              imgUrlsProblemsPartTen:
+                                  widget.imgUrlsProblemsPartTen,
+                              problemCardsPartTen: widget.problemCardsPartTen,
+                              problemsPartEleven: widget.problemsPartEleven,
                               accountablePeoplePartEleven:
                                   widget.accountablePeoplePartEleven,
-                              imgUrlsPartEleven: widget.imgUrlsPartEleven,
+                              urgenciesPartEleven: widget.urgenciesPartEleven,
+                              imgUrlsProblemsPartEleven:
+                                  widget.imgUrlsProblemsPartEleven,
                               problemCardsPartEleven:
                                   widget.problemCardsPartEleven,
-                              problemsPartEleven: widget.problemsPartEleven,
-                              thingsNotOk11: widget.thingsNotOk11,
-                              thingsOk11: widget.thingsOk11,
-                              urgenciesPartEleven: widget.urgenciesPartEleven,
+                              problemsPartTwelve: widget.problemsPartTwelve,
                               accountablePeoplePartTwelve:
                                   widget.accountablePeoplePartTwelve,
-                              imgUrlsPartTwelve: widget.imgUrlsPartTwelve,
+                              urgenciesPartTwelve: widget.urgenciesPartTwelve,
+                              imgUrlsProblemsPartTwelve:
+                                  widget.imgUrlsProblemsPartTwelve,
                               problemCardsPartTwelve:
                                   widget.problemCardsPartTwelve,
-                              problemsPartTwelve: widget.problemsPartTwelve,
-                              thingsNotOk12: widget.thingsNotOk12,
-                              thingsOk12: widget.thingsOk12,
-                              urgenciesPartTwelve: widget.urgenciesPartTwelve,
+                              problemsPartThirteen: widget.problemsPartThirteen,
                               accountablePeoplePartThirteen:
                                   widget.accountablePeoplePartThirteen,
-                              imgUrlsPartThirteen: widget.imgUrlsPartThirteen,
-                              problemCardsPartThirteen:
-                                  widget.problemCardsPartThirteen,
-                              problemsPartThirteen: widget.problemsPartThirteen,
-                              thingsNotOk13: widget.thingsNotOk13,
-                              thingsOk13: widget.thingsOk13,
                               urgenciesPartThirteen:
                                   widget.urgenciesPartThirteen,
+                              imgUrlsProblemsPartThirteen:
+                                  widget.imgUrlsProblemsPartThirteen,
+                              problemCardsPartThirteen:
+                                  widget.problemCardsPartThirteen,
+                              problemsPartFourteen: widget.problemsPartFourteen,
                               accountablePeoplePartFourteen:
-                                  accountablePeoplePartFourteen,
-                              imgUrlsPartFourteen: imgUrlsProblemsPartFourteen,
+                                  widget.accountablePeoplePartFourteen,
+                              urgenciesPartFourteen:
+                                  widget.urgenciesPartFourteen,
+                              imgUrlsProblemsPartFourteen:
+                                  widget.imgUrlsProblemsPartFourteen,
                               problemCardsPartFourteen:
-                                  problemCardsPartFourteen,
-                              problemsPartFourteen: problemsPartFourteen,
-                              thingsNotOk14: thingsNotOk14,
-                              thingsOk14: thingsOk14,
-                              urgenciesPartFourteen: urgenciesPartFourteen,
+                                  widget.problemCardsPartFourteen,
                               index: index,
                               allThingsOk: allOk,
                               allThingsNotOk: allNotOk,
@@ -574,28 +612,28 @@ class _FormPartFourteenPageState extends State<FormPartFourteenPage> {
 
   plusThingsOkPartFourteen() {
     setState(() {
-      thingsOk14++;
+      widget.thingsOk14++;
     });
   }
 
   minusThingsOkPartFourteen() {
-    if (thingsOk14 > 0) {
+    if (widget.thingsOk14 > 0) {
       setState(() {
-        thingsOk14--;
+        widget.thingsOk14--;
       });
     }
   }
 
   plusThingsNotOkPartFourteen() {
     setState(() {
-      thingsNotOk14++;
+      widget.thingsNotOk14++;
     });
   }
 
   minusThingsNotOkPartFourteen() {
-    if (thingsNotOk14 > 0) {
+    if (widget.thingsNotOk14 > 0) {
       setState(() {
-        thingsNotOk14--;
+        widget.thingsNotOk14--;
       });
     }
   }
@@ -611,7 +649,8 @@ class _FormPartFourteenPageState extends State<FormPartFourteenPage> {
     if (file == null) return;
     final fileName = "part14problem$problem14Id";
     final destination = "files/$fileName";
-    _problemData.problem = problemFourteenController.text.trim();
+    _problemData.problem =
+        "${widget.currentRoom} ${problemFourteenController.text.trim()}";
     _problemData.accountablePeople = problemsAccountablePeople;
     _problemData.urgency = currentUrgency;
     _problemData.problemId = problem14Id.toString();
@@ -627,7 +666,7 @@ class _FormPartFourteenPageState extends State<FormPartFourteenPage> {
         .add(_problemData.toJson());
     setState(() {
       problem14Id++;
-      imgUrlsProblemsPartFourteen.add(urlDownload);
+      widget.imgUrlsProblemsPartFourteen.add(urlDownload);
     });
   }
 

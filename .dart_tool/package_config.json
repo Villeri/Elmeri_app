@@ -14,6 +14,36 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "camera",
+      "rootUri": "file:///C:/Users/riekk/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/camera-0.10.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "camera_android",
+      "rootUri": "file:///C:/Users/riekk/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/camera_android-0.10.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "camera_avfoundation",
+      "rootUri": "file:///C:/Users/riekk/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/camera_avfoundation-0.9.8+2",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "camera_platform_interface",
+      "rootUri": "file:///C:/Users/riekk/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/camera_platform_interface-2.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "camera_web",
+      "rootUri": "file:///C:/Users/riekk/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/camera_web-0.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "characters",
       "rootUri": "file:///C:/Users/riekk/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.2.0",
       "packageUri": "lib/",
@@ -52,6 +82,12 @@
     {
       "name": "collection",
       "rootUri": "file:///C:/Users/riekk/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.16.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "cross_file",
+      "rootUri": "file:///C:/Users/riekk/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3+1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -182,6 +218,18 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "fluttertoast",
+      "rootUri": "file:///C:/Users/riekk/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-8.0.9",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "gallery_saver",
+      "rootUri": "file:///C:/Users/riekk/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/gallery_saver-2.3.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "http",
       "rootUri": "file:///C:/Users/riekk/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.4",
       "packageUri": "lib/",
@@ -308,6 +356,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "quiver",
+      "rootUri": "file:///C:/Users/riekk/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-3.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///C:/Users/riekk/Documents/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -328,6 +382,12 @@
     {
       "name": "stream_channel",
       "rootUri": "file:///C:/Users/riekk/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "stream_transform",
+      "rootUri": "file:///C:/Users/riekk/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/stream_transform-2.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -398,7 +458,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-08-01T05:51:53.811140Z",
+  "generated": "2022-08-11T09:34:42.884706Z",
   "generator": "pub",
   "generatorVersion": "2.17.6"
 }
