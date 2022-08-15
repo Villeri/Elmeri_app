@@ -429,34 +429,6 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
                           builder: (context) => NewRoom(
                                 accountablePeople: widget.accountablePeople,
                                 date: widget.date,
-                                thingsOk1: widget.thingsOk1,
-                                thingsNotOk1: widget.thingsNotOk1,
-                                thingsOk2: widget.thingsOk2,
-                                thingsNotOk2: widget.thingsNotOk2,
-                                thingsOk3: widget.thingsOk3,
-                                thingsNotOk3: widget.thingsNotOk3,
-                                thingsOk4: widget.thingsOk4,
-                                thingsNotOk4: widget.thingsNotOk4,
-                                thingsOk5: widget.thingsOk5,
-                                thingsNotOk5: widget.thingsNotOk5,
-                                thingsOk6: widget.thingsOk6,
-                                thingsNotOk6: widget.thingsNotOk6,
-                                thingsOk7: widget.thingsOk7,
-                                thingsNotOk7: widget.thingsNotOk7,
-                                thingsOk8: widget.thingsOk8,
-                                thingsNotOk8: widget.thingsNotOk8,
-                                thingsOk9: widget.thingsOk9,
-                                thingsNotOk9: widget.thingsNotOk9,
-                                thingsOk10: widget.thingsOk10,
-                                thingsNotOk10: widget.thingsNotOk10,
-                                thingsOk11: widget.thingsOk11,
-                                thingsNotOk11: widget.thingsNotOk11,
-                                thingsOk12: widget.thingsOk12,
-                                thingsNotOk12: widget.thingsNotOk12,
-                                thingsOk13: widget.thingsOk13,
-                                thingsNotOk13: widget.thingsNotOk13,
-                                thingsOk14: widget.thingsOk14,
-                                thingsNotOk14: widget.thingsNotOk14,
                                 problemCardsPartOne: widget.problemCardsPartOne,
                                 problemsPartOne: widget.problemsPartOne,
                                 accountablePeoplePartOne:
@@ -569,6 +541,8 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
                                     widget.imgUrlsProblemsPartFourteen,
                                 problemCardsPartFourteen:
                                     widget.problemCardsPartFourteen,
+                                allThingsOk: widget.allThingsOk,
+                                allThingsNotOk: widget.allThingsNotOk,
                               )));
                 },
               ),
@@ -577,12 +551,45 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(primary: Colors.red),
                       onPressed: () {
-                        Navigator.push(
+                        showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: const Text("Huomio"),
+                            content: const Text(
+                                "Tiedot nollaantuvat jos menet päävalikkoon"),
+                            actions: <Widget>[
+                              Row(
+                                children: [
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: const Text("Takaisin"),
+                                  ),
+                                  const Spacer(),
+                                  ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => MainMenu(
+                                              userType: "user",
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                      child: const Text("OK"))
+                                ],
+                              ),
+                            ],
+                          ),
+                        );
+                        /*Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => MainMenu(
                                       userType: "user",
-                                    )));
+                                    )));*/
                       },
                       child: const Text("Päävalikkoon")),
                   const Spacer(),
@@ -592,6 +599,11 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
                   ElevatedButton(
                       onPressed: () {
                         saveDataToDatabase();
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
+                          content: Text("Tiedot tallennettu"),
+                          duration: Duration(milliseconds: 1500),
+                        ));
                       },
                       child: const Text("Tallenna tiedot")),
                 ],
@@ -1334,6 +1346,14 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     final page3 = document.pages.add();
     marginTop = 15;
 
+    page3.graphics.drawString(
+      "1. Riskinotto, suojaus ja vaatetus poikkeamat",
+      PdfStandardFont(PdfFontFamily.helvetica, 20),
+      bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+    );
+
+    marginTop += 30;
+
     if (widget.problemsPartOne.isEmpty) {
       page3.graphics.drawString(
         "Ei poikkeamia kohdassa 1.",
@@ -1343,19 +1363,19 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     } else {
       for (var i = 0; i < widget.problemsPartOne.length; i++) {
         page3.graphics.drawString(
-          "${i + 1}. Poikkeama: ${widget.problemsPartOne[i]}",
+          "Poikkeama: ${widget.problemsPartOne[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page3.graphics.drawString(
-          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartOne[i]}",
+          "Vastuutaho: ${widget.accountablePeoplePartOne[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page3.graphics.drawString(
-          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartOne[i]}",
+          "Kiireellisyys: ${widget.urgenciesPartOne[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
@@ -1373,6 +1393,14 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     final page4 = document.pages.add();
     marginTop = 15;
 
+    page4.graphics.drawString(
+      "2. Fyysinen kuormitus poikkeamat",
+      PdfStandardFont(PdfFontFamily.helvetica, 20),
+      bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+    );
+
+    marginTop += 30;
+
     if (widget.problemsPartTwo.isEmpty) {
       page4.graphics.drawString(
         "Ei poikkeamia kohdassa 2.",
@@ -1382,19 +1410,19 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     } else {
       for (var i = 0; i < widget.problemsPartTwo.length; i++) {
         page4.graphics.drawString(
-          "${i + 1}. Poikkeama: ${widget.problemsPartTwo[i]}",
+          "Poikkeama: ${widget.problemsPartTwo[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page4.graphics.drawString(
-          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartTwo[i]}",
+          "Vastuutaho: ${widget.accountablePeoplePartTwo[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page4.graphics.drawString(
-          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartTwo[i]}",
+          "Kiireellisyys: ${widget.urgenciesPartTwo[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
@@ -1412,6 +1440,14 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     final page5 = document.pages.add();
     marginTop = 15;
 
+    page5.graphics.drawString(
+      "3. Työpisteiden ja -välinen ergonomia poikkeamat",
+      PdfStandardFont(PdfFontFamily.helvetica, 20),
+      bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+    );
+
+    marginTop += 30;
+
     if (widget.problemsPartThree.isEmpty) {
       page5.graphics.drawString(
         "Ei poikkeamia kohdassa 3.",
@@ -1421,19 +1457,19 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     } else {
       for (var i = 0; i < widget.problemsPartThree.length; i++) {
         page5.graphics.drawString(
-          "${i + 1}. Poikkeama: ${widget.problemsPartThree[i]}",
+          "Poikkeama: ${widget.problemsPartThree[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page5.graphics.drawString(
-          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartThree[i]}",
+          "Vastuutaho: ${widget.accountablePeoplePartThree[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page5.graphics.drawString(
-          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartThree[i]}",
+          "Kiireellisyys: ${widget.urgenciesPartThree[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
@@ -1451,6 +1487,14 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     final page6 = document.pages.add();
     marginTop = 15;
 
+    page6.graphics.drawString(
+      "4. Koneiden kunto ja suojalaitteet poikkeamat",
+      PdfStandardFont(PdfFontFamily.helvetica, 20),
+      bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+    );
+
+    marginTop += 30;
+
     if (widget.problemsPartFour.isEmpty) {
       page6.graphics.drawString(
         "Ei poikkeamia kohdassa 4.",
@@ -1460,19 +1504,19 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     } else {
       for (var i = 0; i < widget.problemsPartFour.length; i++) {
         page6.graphics.drawString(
-          "${i + 1}. Poikkeama: ${widget.problemsPartFour[i]}",
+          "Poikkeama: ${widget.problemsPartFour[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page6.graphics.drawString(
-          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartFour[i]}",
+          "Vastuutaho: ${widget.accountablePeoplePartFour[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page6.graphics.drawString(
-          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartFour[i]}",
+          "Kiireellisyys: ${widget.urgenciesPartFour[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
@@ -1490,6 +1534,14 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     final page7 = document.pages.add();
     marginTop = 15;
 
+    page7.graphics.drawString(
+      "5. Koneiden hallintalaitteet ja merkinnät poikkeamat",
+      PdfStandardFont(PdfFontFamily.helvetica, 20),
+      bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+    );
+
+    marginTop += 30;
+
     if (widget.problemsPartFive.isEmpty) {
       page7.graphics.drawString(
         "Ei poikkeamia kohdassa 5.",
@@ -1499,19 +1551,19 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     } else {
       for (var i = 0; i < widget.problemsPartFive.length; i++) {
         page7.graphics.drawString(
-          "${i + 1}. Poikkeama: ${widget.problemsPartFive[i]}",
+          "Poikkeama: ${widget.problemsPartFive[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page7.graphics.drawString(
-          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartFive[i]}",
+          "Vastuutaho: ${widget.accountablePeoplePartFive[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page7.graphics.drawString(
-          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartFive[i]}",
+          "Kiireellisyys: ${widget.urgenciesPartFive[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
@@ -1529,6 +1581,14 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     final page8 = document.pages.add();
     marginTop = 15;
 
+    page8.graphics.drawString(
+      "6. Kulkuteiden ja lattioiden rakenne, putoamissuojaus poikkeamat",
+      PdfStandardFont(PdfFontFamily.helvetica, 20),
+      bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+    );
+
+    marginTop += 30;
+
     if (widget.problemsPartSix.isEmpty) {
       page8.graphics.drawString(
         "Ei poikkeamia kohdassa 6.",
@@ -1538,19 +1598,19 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     } else {
       for (var i = 0; i < widget.problemsPartSix.length; i++) {
         page8.graphics.drawString(
-          "${i + 1}. Poikkeama: ${widget.problemsPartSix[i]}",
+          "Poikkeama: ${widget.problemsPartSix[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page8.graphics.drawString(
-          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartSix[i]}",
+          "Vastuutaho: ${widget.accountablePeoplePartSix[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page8.graphics.drawString(
-          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartSix[i]}",
+          "Kiireellisyys: ${widget.urgenciesPartSix[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
@@ -1568,6 +1628,14 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     final page9 = document.pages.add();
     marginTop = 15;
 
+    page9.graphics.drawString(
+      "7. Poistumistiet poikkeamat",
+      PdfStandardFont(PdfFontFamily.helvetica, 20),
+      bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+    );
+
+    marginTop += 30;
+
     if (widget.problemsPartSeven.isEmpty) {
       page9.graphics.drawString(
         "Ei poikkeamia kohdassa 7.",
@@ -1577,19 +1645,19 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     } else {
       for (var i = 0; i < widget.problemsPartSeven.length; i++) {
         page9.graphics.drawString(
-          "${i + 1}. Poikkeama: ${widget.problemsPartSeven[i]}",
+          "Poikkeama: ${widget.problemsPartSeven[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page9.graphics.drawString(
-          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartSeven[i]}",
+          "Vastuutaho: ${widget.accountablePeoplePartSeven[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page9.graphics.drawString(
-          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartSeven[i]}",
+          "Kiireellisyys: ${widget.urgenciesPartSeven[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
@@ -1607,6 +1675,14 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     final page10 = document.pages.add();
     marginTop = 15;
 
+    page10.graphics.drawString(
+      "8. Kulkuteiden ja lattioiden järjestys poikkeamat",
+      PdfStandardFont(PdfFontFamily.helvetica, 20),
+      bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+    );
+
+    marginTop += 30;
+
     if (widget.problemsPartEight.isEmpty) {
       page10.graphics.drawString(
         "Ei poikkeamia kohdassa 8.",
@@ -1616,19 +1692,19 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     } else {
       for (var i = 0; i < widget.problemsPartEight.length; i++) {
         page10.graphics.drawString(
-          "${i + 1}. Poikkeama: ${widget.problemsPartEight[i]}",
+          "Poikkeama: ${widget.problemsPartEight[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page10.graphics.drawString(
-          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartEight[i]}",
+          "Vastuutaho: ${widget.accountablePeoplePartEight[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page10.graphics.drawString(
-          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartEight[i]}",
+          "Kiireellisyys: ${widget.urgenciesPartEight[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
@@ -1646,6 +1722,14 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     final page11 = document.pages.add();
     marginTop = 15;
 
+    page11.graphics.drawString(
+      "9. Pöydät, päälliset ja hyllyt poikkeamat",
+      PdfStandardFont(PdfFontFamily.helvetica, 20),
+      bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+    );
+
+    marginTop += 30;
+
     if (widget.problemsPartNine.isEmpty) {
       page11.graphics.drawString(
         "Ei poikkeamia kohdassa 9.",
@@ -1655,19 +1739,19 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     } else {
       for (var i = 0; i < widget.problemsPartNine.length; i++) {
         page11.graphics.drawString(
-          "${i + 1}. Poikkeama: ${widget.problemsPartNine[i]}",
+          "Poikkeama: ${widget.problemsPartNine[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page11.graphics.drawString(
-          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartNine[i]}",
+          "Vastuutaho: ${widget.accountablePeoplePartNine[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page11.graphics.drawString(
-          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartNine[i]}",
+          "Kiireellisyys: ${widget.urgenciesPartNine[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
@@ -1685,6 +1769,14 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     final page12 = document.pages.add();
     marginTop = 15;
 
+    page12.graphics.drawString(
+      "10. Jäteastiat poikkeamat",
+      PdfStandardFont(PdfFontFamily.helvetica, 20),
+      bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+    );
+
+    marginTop += 30;
+
     if (widget.problemsPartTen.isEmpty) {
       page12.graphics.drawString(
         "Ei poikkeamia kohdassa 10.",
@@ -1694,19 +1786,19 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     } else {
       for (var i = 0; i < widget.problemsPartTen.length; i++) {
         page12.graphics.drawString(
-          "${i + 1}. Poikkeama: ${widget.problemsPartTen[i]}",
+          "Poikkeama: ${widget.problemsPartTen[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page12.graphics.drawString(
-          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartTen[i]}",
+          "Vastuutaho: ${widget.accountablePeoplePartTen[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page12.graphics.drawString(
-          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartTen[i]}",
+          "Kiireellisyys: ${widget.urgenciesPartTen[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
@@ -1724,6 +1816,14 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     final page13 = document.pages.add();
     marginTop = 15;
 
+    page13.graphics.drawString(
+      "11. Melu poikkeamat",
+      PdfStandardFont(PdfFontFamily.helvetica, 20),
+      bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+    );
+
+    marginTop += 30;
+
     if (widget.problemsPartEleven.isEmpty) {
       page13.graphics.drawString(
         "Ei poikkeamia kohdassa 11.",
@@ -1733,19 +1833,19 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     } else {
       for (var i = 0; i < widget.problemsPartEleven.length; i++) {
         page13.graphics.drawString(
-          "${i + 1}. Poikkeama: ${widget.problemsPartEleven[i]}",
+          "Poikkeama: ${widget.problemsPartEleven[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page13.graphics.drawString(
-          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartEleven[i]}",
+          "Vastuutaho: ${widget.accountablePeoplePartEleven[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page13.graphics.drawString(
-          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartEleven[i]}",
+          "Kiireellisyys: ${widget.urgenciesPartEleven[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
@@ -1763,6 +1863,14 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     final page14 = document.pages.add();
     marginTop = 15;
 
+    page14.graphics.drawString(
+      "12. Valaistus poikkeamat",
+      PdfStandardFont(PdfFontFamily.helvetica, 20),
+      bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+    );
+
+    marginTop += 30;
+
     if (widget.problemsPartTwelve.isEmpty) {
       page14.graphics.drawString(
         "Ei poikkeamia kohdassa 12.",
@@ -1772,19 +1880,19 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     } else {
       for (var i = 0; i < widget.problemsPartTwelve.length; i++) {
         page14.graphics.drawString(
-          "${i + 1}. Poikkeama: ${widget.problemsPartTwelve[i]}",
+          "Poikkeama: ${widget.problemsPartTwelve[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page14.graphics.drawString(
-          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartTwelve[i]}",
+          "Vastuutaho: ${widget.accountablePeoplePartTwelve[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page14.graphics.drawString(
-          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartTwelve[i]}",
+          "Kiireellisyys: ${widget.urgenciesPartTwelve[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
@@ -1802,6 +1910,14 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     final page15 = document.pages.add();
     marginTop = 15;
 
+    page15.graphics.drawString(
+      "13. Lämpöolosuhteet poikkeamat",
+      PdfStandardFont(PdfFontFamily.helvetica, 20),
+      bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+    );
+
+    marginTop += 30;
+
     if (widget.problemsPartThirteen.isEmpty) {
       page15.graphics.drawString(
         "Ei poikkeamia kohdassa 13.",
@@ -1811,19 +1927,19 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     } else {
       for (var i = 0; i < widget.problemsPartThirteen.length; i++) {
         page15.graphics.drawString(
-          "${i + 1}. Poikkeama: ${widget.problemsPartThirteen[i]}",
+          "Poikkeama: ${widget.problemsPartThirteen[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page15.graphics.drawString(
-          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartThirteen[i]}",
+          "Vastuutaho: ${widget.accountablePeoplePartThirteen[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page15.graphics.drawString(
-          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartThirteen[i]}",
+          "Kiireellisyys: ${widget.urgenciesPartThirteen[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
@@ -1841,6 +1957,14 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     final page16 = document.pages.add();
     marginTop = 15;
 
+    page16.graphics.drawString(
+      "14. Ilman puhtaus ja käsiteltävät aineet poikkeamat",
+      PdfStandardFont(PdfFontFamily.helvetica, 20),
+      bounds: Rect.fromLTWH(0, marginTop, 0, 0),
+    );
+
+    marginTop += 30;
+
     if (widget.problemsPartFourteen.isEmpty) {
       page16.graphics.drawString(
         "Ei poikkeamia kohdassa 14.",
@@ -1850,19 +1974,19 @@ class _FormSummaryPageState extends State<FormSummaryPage> {
     } else {
       for (var i = 0; i < widget.problemsPartFourteen.length; i++) {
         page16.graphics.drawString(
-          "${i + 1}. Poikkeama: ${widget.problemsPartFourteen[i]}",
+          "Poikkeama: ${widget.problemsPartFourteen[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page16.graphics.drawString(
-          "${i + 1}. Vastuutaho: ${widget.accountablePeoplePartFourteen[i]}",
+          "Vastuutaho: ${widget.accountablePeoplePartFourteen[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );
         marginTop += 15;
         page16.graphics.drawString(
-          "${i + 1}. Kiireellisyys: ${widget.urgenciesPartFourteen[i]}",
+          "Kiireellisyys: ${widget.urgenciesPartFourteen[i]}",
           PdfStandardFont(PdfFontFamily.helvetica, 15),
           bounds: Rect.fromLTWH(0, marginTop, 0, 0),
         );

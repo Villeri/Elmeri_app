@@ -121,6 +121,8 @@ class FormPartFourteenPage extends StatefulWidget {
   List urgenciesPartFourteen;
   List imgUrlsProblemsPartFourteen;
   List<Widget> problemCardsPartFourteen;
+  num allThingsOk;
+  num allThingsNotOk;
 
   FormPartFourteenPage({
     Key? key,
@@ -225,6 +227,8 @@ class FormPartFourteenPage extends StatefulWidget {
     required this.urgenciesPartFourteen,
     required this.imgUrlsProblemsPartFourteen,
     required this.problemCardsPartFourteen,
+    required this.allThingsOk,
+    required this.allThingsNotOk,
   }) : super(key: key);
 
   @override
@@ -411,6 +415,7 @@ class _FormPartFourteenPageState extends State<FormPartFourteenPage> {
                                     ),
                                   ),
                                 );
+                                problemFourteenController.text = "";
                               });
                             }
                           : () {
@@ -440,7 +445,8 @@ class _FormPartFourteenPageState extends State<FormPartFourteenPage> {
                     widget.thingsOk11 +
                     widget.thingsOk12 +
                     widget.thingsOk13 +
-                    widget.thingsOk14;
+                    widget.thingsOk14 +
+                    widget.allThingsOk;
                 num allNotOk = widget.thingsNotOk1 +
                     widget.thingsNotOk2 +
                     widget.thingsNotOk3 +
@@ -454,7 +460,8 @@ class _FormPartFourteenPageState extends State<FormPartFourteenPage> {
                     widget.thingsNotOk11 +
                     widget.thingsNotOk12 +
                     widget.thingsNotOk13 +
-                    widget.thingsNotOk14;
+                    widget.thingsNotOk14 +
+                    widget.allThingsNotOk;
                 index = allOk / (allOk + allNotOk) * 100;
                 Navigator.push(
                     context,

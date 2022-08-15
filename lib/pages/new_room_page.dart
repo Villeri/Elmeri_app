@@ -6,34 +6,7 @@ import 'form_parts/form_part1_page.dart';
 class NewRoom extends StatefulWidget {
   List accountablePeople;
   String date;
-  int thingsOk1;
-  int thingsNotOk1;
-  int thingsOk2;
-  int thingsNotOk2;
-  int thingsOk3;
-  int thingsNotOk3;
-  int thingsOk4;
-  int thingsNotOk4;
-  int thingsOk5;
-  int thingsNotOk5;
-  int thingsOk6;
-  int thingsNotOk6;
-  int thingsOk7;
-  int thingsNotOk7;
-  int thingsOk8;
-  int thingsNotOk8;
-  int thingsOk9;
-  int thingsNotOk9;
-  int thingsOk10;
-  int thingsNotOk10;
-  int thingsOk11;
-  int thingsNotOk11;
-  int thingsOk12;
-  int thingsNotOk12;
-  int thingsOk13;
-  int thingsNotOk13;
-  int thingsOk14;
-  int thingsNotOk14;
+
   List problemsPartOne;
   List accountablePeoplePartOne;
   List urgenciesPartOne;
@@ -104,39 +77,13 @@ class NewRoom extends StatefulWidget {
   List urgenciesPartFourteen;
   List imgUrlsProblemsPartFourteen;
   List<Widget> problemCardsPartFourteen;
+  num allThingsOk;
+  num allThingsNotOk;
 
   NewRoom({
     Key? key,
     required this.accountablePeople,
     required this.date,
-    required this.thingsOk1,
-    required this.thingsNotOk1,
-    required this.thingsOk2,
-    required this.thingsNotOk2,
-    required this.thingsOk3,
-    required this.thingsNotOk3,
-    required this.thingsOk4,
-    required this.thingsNotOk4,
-    required this.thingsOk5,
-    required this.thingsNotOk5,
-    required this.thingsOk6,
-    required this.thingsNotOk6,
-    required this.thingsOk7,
-    required this.thingsNotOk7,
-    required this.thingsOk8,
-    required this.thingsNotOk8,
-    required this.thingsOk9,
-    required this.thingsNotOk9,
-    required this.thingsOk10,
-    required this.thingsNotOk10,
-    required this.thingsOk11,
-    required this.thingsNotOk11,
-    required this.thingsOk12,
-    required this.thingsNotOk12,
-    required this.thingsOk13,
-    required this.thingsNotOk13,
-    required this.thingsOk14,
-    required this.thingsNotOk14,
     required this.problemsPartOne,
     required this.accountablePeoplePartOne,
     required this.urgenciesPartOne,
@@ -207,6 +154,8 @@ class NewRoom extends StatefulWidget {
     required this.urgenciesPartFourteen,
     required this.imgUrlsProblemsPartFourteen,
     required this.problemCardsPartFourteen,
+    required this.allThingsOk,
+    required this.allThingsNotOk,
   }) : super(key: key);
 
   @override
@@ -269,37 +218,37 @@ class _NewRoomState extends State<NewRoom> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => FormPartOnePage(
+                                thingsOk1: 0,
+                                thingsNotOk1: 0,
+                                thingsOk2: 0,
+                                thingsNotOk2: 0,
+                                thingsOk3: 0,
+                                thingsNotOk3: 0,
+                                thingsOk4: 0,
+                                thingsNotOk4: 0,
+                                thingsOk5: 0,
+                                thingsNotOk5: 0,
+                                thingsOk6: 0,
+                                thingsNotOk6: 0,
+                                thingsOk7: 0,
+                                thingsNotOk7: 0,
+                                thingsOk8: 0,
+                                thingsNotOk8: 0,
+                                thingsOk9: 0,
+                                thingsNotOk9: 0,
+                                thingsOk10: 0,
+                                thingsNotOk10: 0,
+                                thingsOk11: 0,
+                                thingsNotOk11: 0,
+                                thingsOk12: 0,
+                                thingsNotOk12: 0,
+                                thingsOk13: 0,
+                                thingsNotOk13: 0,
+                                thingsOk14: 0,
+                                thingsNotOk14: 0,
                                 accountablePeople: widget.accountablePeople,
                                 currentRoom: _currentRoom,
                                 date: widget.date,
-                                thingsOk1: widget.thingsOk1,
-                                thingsNotOk1: widget.thingsNotOk1,
-                                thingsOk2: widget.thingsOk2,
-                                thingsNotOk2: widget.thingsNotOk2,
-                                thingsOk3: widget.thingsOk3,
-                                thingsNotOk3: widget.thingsNotOk3,
-                                thingsOk4: widget.thingsOk4,
-                                thingsNotOk4: widget.thingsNotOk4,
-                                thingsOk5: widget.thingsOk5,
-                                thingsNotOk5: widget.thingsNotOk5,
-                                thingsOk6: widget.thingsOk6,
-                                thingsNotOk6: widget.thingsNotOk6,
-                                thingsOk7: widget.thingsOk7,
-                                thingsNotOk7: widget.thingsNotOk7,
-                                thingsOk8: widget.thingsOk8,
-                                thingsNotOk8: widget.thingsNotOk8,
-                                thingsOk9: widget.thingsOk9,
-                                thingsNotOk9: widget.thingsNotOk9,
-                                thingsOk10: widget.thingsOk10,
-                                thingsNotOk10: widget.thingsNotOk10,
-                                thingsOk11: widget.thingsOk11,
-                                thingsNotOk11: widget.thingsNotOk11,
-                                thingsOk12: widget.thingsOk12,
-                                thingsNotOk12: widget.thingsNotOk12,
-                                thingsOk13: widget.thingsOk13,
-                                thingsNotOk13: widget.thingsNotOk13,
-                                thingsOk14: widget.thingsOk14,
-                                thingsNotOk14: widget.thingsNotOk14,
                                 problemCardsPartOne: widget.problemCardsPartOne,
                                 problemsPartOne: widget.problemsPartOne,
                                 urgenciesPartOne: widget.urgenciesPartOne,
@@ -412,6 +361,8 @@ class _NewRoomState extends State<NewRoom> {
                                     widget.imgUrlsProblemsPartFourteen,
                                 problemCardsPartFourteen:
                                     widget.problemCardsPartFourteen,
+                                allThingsOk: widget.allThingsOk,
+                                allThingsNotOk: widget.allThingsNotOk,
                               )));
                 },
               ),

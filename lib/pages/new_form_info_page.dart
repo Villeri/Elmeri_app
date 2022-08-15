@@ -58,6 +58,8 @@ class _NewFormInfoPageState extends State<NewFormInfoPage> {
   int thingsNotOk13 = 0;
   int thingsOk14 = 0;
   int thingsNotOk14 = 0;
+  num allThingsOk = 0;
+  num allThingsNotOk = 0;
   List problemsPartOne = [];
   List accountablePeoplePartOne = [];
   List urgenciesPartOne = [];
@@ -452,6 +454,8 @@ class _NewFormInfoPageState extends State<NewFormInfoPage> {
                                           imgUrlsProblemsPartFourteen,
                                       problemCardsPartFourteen:
                                           problemCardsPartFourteen,
+                                      allThingsOk: allThingsOk,
+                                      allThingsNotOk: allThingsNotOk,
                                     )));
                       }
                     : () {

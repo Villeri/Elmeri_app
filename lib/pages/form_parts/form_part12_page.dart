@@ -121,6 +121,8 @@ class FormPartTwelvePage extends StatefulWidget {
   List urgenciesPartFourteen;
   List imgUrlsProblemsPartFourteen;
   List<Widget> problemCardsPartFourteen;
+  num allThingsOk;
+  num allThingsNotOk;
 
   FormPartTwelvePage({
     Key? key,
@@ -225,6 +227,8 @@ class FormPartTwelvePage extends StatefulWidget {
     required this.urgenciesPartFourteen,
     required this.imgUrlsProblemsPartFourteen,
     required this.problemCardsPartFourteen,
+    required this.allThingsOk,
+    required this.allThingsNotOk,
   }) : super(key: key);
 
   @override
@@ -409,6 +413,7 @@ class _FormPartTwelvePageState extends State<FormPartTwelvePage> {
                                     ),
                                   ),
                                 );
+                                problemTwelveController.text = "";
                               });
                             }
                           : () {
@@ -567,6 +572,8 @@ class _FormPartTwelvePageState extends State<FormPartTwelvePage> {
                                   widget.imgUrlsProblemsPartFourteen,
                               problemCardsPartFourteen:
                                   widget.problemCardsPartFourteen,
+                              allThingsOk: widget.allThingsOk,
+                              allThingsNotOk: widget.allThingsNotOk,
                             )));
               })
             ],

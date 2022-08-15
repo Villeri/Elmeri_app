@@ -122,6 +122,8 @@ class FormPartOnePage extends StatefulWidget {
   List urgenciesPartFourteen;
   List imgUrlsProblemsPartFourteen;
   List<Widget> problemCardsPartFourteen;
+  num allThingsOk;
+  num allThingsNotOk;
 
   FormPartOnePage({
     Key? key,
@@ -226,6 +228,8 @@ class FormPartOnePage extends StatefulWidget {
     required this.urgenciesPartFourteen,
     required this.imgUrlsProblemsPartFourteen,
     required this.problemCardsPartFourteen,
+    required this.allThingsOk,
+    required this.allThingsNotOk,
   }) : super(key: key);
 
   @override
@@ -250,7 +254,7 @@ class _FormPartOnePageState extends State<FormPartOnePage> {
 
   @override
   Widget build(BuildContext context) {
-    final fileName =
+    String fileName =
         file != null ? basename(file!.path) : "Tiedostoa ei valittu.";
     return Scaffold(
       appBar: AppBar(
@@ -410,6 +414,7 @@ class _FormPartOnePageState extends State<FormPartOnePage> {
                                     ),
                                   ),
                                 );
+                                problemOneController.text = "";
                               });
                             }
                           : () {
@@ -568,6 +573,8 @@ class _FormPartOnePageState extends State<FormPartOnePage> {
                                   widget.imgUrlsProblemsPartFourteen,
                               problemCardsPartFourteen:
                                   widget.problemCardsPartFourteen,
+                              allThingsOk: widget.allThingsOk,
+                              allThingsNotOk: widget.allThingsNotOk,
                             )));
               })
             ],
